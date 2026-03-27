@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Mail, MapPin, Phone, Share2 } from 'lucide-react';
+import osonautaLogo from '../assets/logos/osonauta.png';
 
 const Contact = ({ id }) => {
   const formRef = useScrollReveal({ threshold: 0.1 });
@@ -13,6 +14,14 @@ const Contact = ({ id }) => {
         className="absolute bottom-0 left-0 w-full h-[600px] bg-gradient-to-t from-[var(--color-bg-base)] to-transparent pointer-events-none z-0"
         aria-hidden="true"
       />
+      
+      {/* Logo Esquina Inferior Izquierda */}
+      <img
+        src={osonautaLogo}
+        alt="Osonauta Studio"
+        className="absolute bottom-8 left-8 w-32 md:w-48 opacity-60 pointer-events-none z-0 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-opacity duration-500 hover:opacity-100"
+      />
+
       <div 
         className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-[var(--color-primary)] rounded-full blur-[150px] opacity-20 pointer-events-none mix-blend-screen"
         style={{ animation: 'glowPulse 8s infinite' }}
@@ -70,7 +79,7 @@ const Contact = ({ id }) => {
                   </div>
                   <div>
                     <span className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Base Espacial</span>
-                    <p className="text-white text-sm">México (Añade tu ubicación)</p>
+                    <p className="text-white text-sm">Negrete 807 zona centro, Durango, México, 34000</p>
                   </div>
                 </li>
                 
@@ -80,7 +89,7 @@ const Contact = ({ id }) => {
                   </div>
                   <div>
                     <span className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Frecuencia</span>
-                    <a href="tel:+521234567890" className="text-white hover:text-[var(--color-accent)] transition-colors text-sm">+52 123 456 7890</a>
+                    <a href="tel:+526182663567" className="text-white hover:text-[var(--color-accent)] transition-colors text-sm">618 266 3567</a>
                   </div>
                 </li>
               </ul>
@@ -92,14 +101,16 @@ const Contact = ({ id }) => {
                 <Share2 size={20} className="text-[var(--color-secondary)]" /> Redes Aliadas
               </h3>
               <div className="flex gap-4">
-                {/* Cambia el # por tus enlaces reales de redes */}
-                <a href="#" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#E1306C] hover:text-[#E1306C] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(225,48,108,0.5)]">
+                <a href="https://www.instagram.com/osonauta_cueva_creativa/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#E1306C] hover:text-[#E1306C] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(225,48,108,0.5)]">
                   <span className="font-bold text-lg">IG</span>
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#1877F2] hover:text-[#1877F2] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(24,119,242,0.5)]">
+                <a href="https://www.facebook.com/profile.php?id=61584631132308" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#1877F2] hover:text-[#1877F2] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(24,119,242,0.5)]">
                   <span className="font-bold text-lg">FB</span>
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#00E676] hover:text-[#00E676] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(0,230,118,0.5)]">
+                <a href="https://www.tiktok.com/@osonauta.studio" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#00f2fe] hover:text-[#00f2fe] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(0,242,254,0.5)]">
+                  <span className="font-bold text-lg">TK</span>
+                </a>
+                <a href="https://wa.me/5216182663567" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#00E676] hover:text-[#00E676] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(0,230,118,0.5)]">
                   <span className="font-bold text-lg">WA</span>
                 </a>
               </div>
