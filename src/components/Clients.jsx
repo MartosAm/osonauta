@@ -1,9 +1,6 @@
-const Clients = ({ id }) => {
-  return (
-    <section id={id} className="min-h-screen flex items-center justify-center border-b border-gray-800">
-      <h2 className="text-h2">Clients Section</h2>
-    </section>
-  );
+const Clients = () => {
+  // Retornamos null o vacío porque integramos los clientes dentro de los Testimoniales para ahorrar espacio y hacerlo más creativo.
+  return null;
 };
 
 export default Clients;
