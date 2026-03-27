@@ -1,0 +1,132 @@
+import { Video, Camera, Palette, Share2 } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+
+const servicesData = [
+  {
+    title: 'Edición de Video',
+    description: 'Transformamos tus grabaciones en piezas dinámicas, atractivas y listas para impactar en Reels, TikToks o YouTube.',
+    icon: Video,
+    color: 'var(--color-primary)', // Morado
+    hoverShadow: 'rgba(123,47,190,0.6)',
+  },
+  {
+    title: 'Fotografía',
+    description: 'Capturamos la esencia de tus platillos o productos con equipo profesional e iluminación de alta calidad. Directo en tu local.',
+    icon: Camera,
+    color: 'var(--color-secondary)', // Cyan
+    hoverShadow: 'rgba(0,180,216,0.6)',
+  },
+  {
+    title: 'Diseño de Logos',
+    description: 'Creamos identidades visuales únicas y memorables que representan fielmente los valores y la misión de tu marca.',
+    icon: Palette,
+    color: 'var(--color-accent)', // Naranja
+    hoverShadow: 'rgba(255,107,53,0.6)',
+  },
+  {
+    title: 'Gestión de Redes',
+    description: 'Manejamos tus plataformas sociales con estrategias de contenido, calendarios de publicación y un enfoque en el crecimiento orgánico.',
+    icon: Share2,
+    color: '#00E676', // Un verde/cyan brillante como color adicional
+    hoverShadow: 'rgba(0,230,118,0.6)',
+  }
+];
+
+const Services = ({ id }) => {
+  const titleRef = useScrollReveal({ threshold: 0.1 });
+  const gridRef = useScrollReveal({ threshold: 0.2 });
+
+  return (
+    <section id={id} className="osn-services relative py-24 bg-transparent overflow-hidden">
+      
+      {/* Nebulosas sutiles para fondo */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-10 mix-blend-screen pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 60%)',
+          animation: 'glowPulse 6s infinite'
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        
+        <div ref={titleRef} className="osn-section-title text-center mb-16" style={{ opacity: 0 }}>
+          <h2 className="text-h1 font-display text-[var(--color-text-primary)] mb-4 drop-shadow-md text-shadow-[0_0_15px_rgba(0,180,216,0.5)]">
+            Nuestra Órbita de Servicios
+          </h2>
+          <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto mb-6">
+            Equipados con todas las herramientas para llevar la imagen de tu negocio directamente a las estrellas.
+          </p>
+          <div className="w-16 h-1 bg-[var(--color-secondary)] mx-auto rounded-full shadow-[0_0_10px_rgba(0,180,216,0.8)]" />
+        </div>
+
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12" style={{ opacity: 0 }}>
+          {servicesData.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div 
+                key={index} 
+                className="group relative bg-[rgba(10,10,26,0.5)] backdrop-blur-md border border-[rgba(255,255,255,0.05)] rounded-3xl p-8 md:p-10 transition-all duration-500 overflow-hidden"
+                style={{
+                  '--hover-color': service.color,
+                  '--hover-shadow': service.hoverShadow
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = service.color;
+                  e.currentTarget.style.boxShadow = `0 10px 40px -10px ${service.hoverShadow}`;
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                {/* Fondo iluminado oculto que aparece en hover */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at top right, ${service.color} 0%, transparent 60%)` }}
+                />
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div 
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 shadow-lg"
+                    style={{ backgroundColor: `color-mix(in srgb, ${service.color} 20%, transparent)` }}
+                  >
+                    <Icon 
+                      size={32} 
+                      color={service.color} 
+                      className="group-hover:scale-110 transition-transform duration-500" 
+                      style={{ filter: `drop-shadow(0 0 8px ${service.color})` }}
+                    />
+                  </div>
+                  
+                  <h3 className="text-h3 font-display text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-300"
+                      style={{ 
+                        backgroundImage: `linear-gradient(to right, #fff, ${service.color})`
+                      }}>
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-body text-[var(--color-text-muted)] leading-relaxed flex-grow group-hover:text-[var(--color-text-primary)] transition-colors duration-300">
+                    {service.description}
+                  </p>
+
+                  {/* Detalle en la esquina - puro css styling */}
+                  <div 
+                    className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl opacity-0 group-hover:opacity-20 transition-all duration-500 rounded-bl-full pointer-events-none"
+                    style={{ fromColor: service.color, toColor: 'transparent', backgroundImage: `linear-gradient(to bottom left, ${service.color}, transparent)` }}
+                  ></div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Services;
