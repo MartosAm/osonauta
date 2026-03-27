@@ -1,34 +1,61 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Play } from 'lucide-react';
+import { Play, Image as ImageIcon } from 'lucide-react';
+
+import imgCafeBrune from '../assets/portafolios/cafe brune/cafe brune rs 2.jpg';
+import imgComunidad from '../assets/portafolios/comunidad/fotos 1.jpg';
+import imgDidaSori from '../assets/portafolios/dida sori/rs 2.jpg';
+import imgFreshFades from '../assets/portafolios/fresh fades /rs 14.jpg';
+import imgMaddeta from '../assets/portafolios/maddeta/rs 32.jpg';
+import imgPecaminoso from '../assets/portafolios/pecaminoso/post 3.jpg';
 
 const portfolioItems = [
   {
     id: 1,
-    title: 'Campaña Gastronómica',
-    category: 'Fotografía & Video',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop',
-    color: 'var(--color-primary)'
+    title: 'Café Brune',
+    category: 'Fotografía Gastronómica',
+    image: imgCafeBrune,
+    color: 'var(--color-primary)', // Morado
+    icon: ImageIcon
   },
   {
     id: 2,
-    title: 'Lanzamiento de Marca',
-    category: 'Identidad Visual',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa221f0?q=80&w=600&auto=format&fit=crop',
-    color: 'var(--color-secondary)'
+    title: 'Pizzería Dida Sori',
+    category: 'Food Styling',
+    image: imgDidaSori,
+    color: 'var(--color-accent)', // Naranja
+    icon: ImageIcon
   },
   {
     id: 3,
-    title: 'Gestión de Redes',
-    category: 'Social Media',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop',
-    color: 'var(--color-accent)'
+    title: 'Pecaminoso',
+    category: 'Restaurante Comercial',
+    image: imgPecaminoso,
+    color: 'var(--color-secondary)', // Cyan
+    icon: ImageIcon
   },
   {
     id: 4,
-    title: 'Spot Publicitario',
-    category: 'Producción de Video',
-    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=600&auto=format&fit=crop',
-    color: '#00E676'
+    title: 'Madetta Interiores',
+    category: 'Espacios & Diseño',
+    image: imgMaddeta,
+    color: '#E0A96D', // Dorado/Madera
+    icon: ImageIcon
+  },
+  {
+    id: 5,
+    title: 'Fresh Fades Barber',
+    category: 'Identidad & Estilo',
+    image: imgFreshFades,
+    color: '#00E676', // Verde brillante
+    icon: ImageIcon
+  },
+  {
+    id: 6,
+    title: 'Comunidad',
+    category: 'Sesión Fotográfica',
+    image: imgComunidad,
+    color: '#9D4EDD', // Morado claro
+    icon: ImageIcon
   }
 ];
 
@@ -54,7 +81,7 @@ const Portfolio = ({ id }) => {
             </h2>
             <div className="w-20 h-1 bg-[var(--color-accent)] mb-6 shadow-[0_0_10px_rgba(255,107,53,0.8)]" />
             <p className="text-body-lg text-[var(--color-text-muted)]">
-              Explora una selección de nuestras misiones más exitosas. Proyectos donde la creatividad se encuentra con la estrategia para generar impacto real.
+              Explora una selección de nuestras misiones exitosas. Proyectos donde la creatividad se encuentra con la estrategia para generar resultados visuales de otra galaxia para marcas reales.
             </p>
           </div>
           
@@ -64,49 +91,50 @@ const Portfolio = ({ id }) => {
           </button>
         </div>
 
-        <div ref={galleryRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8" style={{ opacity: 0 }}>
+        {/* Cambiamos a 3 columnas para acomodar los 6 proyectos perfectamente */}
+        <div ref={galleryRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" style={{ opacity: 0 }}>
           {portfolioItems.map((item) => (
             <div 
               key={item.id}
-              className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.05)]"
+              className="group relative aspect-[4/5] sm:aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.05)] shadow-xl"
             >
-              {/* Imagen de Fondo (Placeholder temporal para que luzca bien) */}
+              {/* Imagen Real del Proyecto */}
               <img 
                 src={item.image} 
                 alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700"
                 loading="lazy"
               />
               
-              {/* Overlay Gradiente */}
+              {/* Overlay Gradiente Base (siempre visible en el fondo para que el texto se lea) */}
               <div 
-                className="absolute inset-0 bg-gradient-to-t from-[#0A0A1A] via-[rgba(10,10,26,0.4)] to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"
+                className="absolute inset-0 bg-gradient-to-t from-[#0A0A1A] via-[#0A0A1A]/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300"
               />
 
-              {/* Botón Play central (Aparece en hover) */}
+              {/* Botón central (Aparece en hover) */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 scale-50 group-hover:scale-100">
                 <div 
-                  className="w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
-                  style={{ backgroundColor: 'rgba(10,10,26,0.5)' }}
+                  className="w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md border shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+                  style={{ backgroundColor: 'rgba(10,10,26,0.6)', borderColor: `${item.color}80` }}
                 >
-                  <Play size={24} className="text-white ml-1" />
+                  {<item.icon size={24} color={item.color} />}
                 </div>
               </div>
 
               {/* Contenido Texto */}
-              <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 z-20">
                 <span 
-                  className="inline-block px-4 py-1 rounded-full text-xs font-bold font-display tracking-widest uppercase mb-3 border border-current"
-                  style={{ color: item.color, borderColor: `${item.color}40`, backgroundColor: `${item.color}15` }}
+                  className="inline-block px-4 py-1 rounded-full text-[0.65rem] md:text-xs font-bold font-display tracking-widest uppercase mb-3 border border-current shadow-[0_0_10px_rgba(0,0,0,0.8)]"
+                  style={{ color: item.color, borderColor: `${item.color}40`, backgroundColor: `${item.color}15`, textShadow: '0 0 5px rgba(0,0,0,0.8)' }}
                 >
                   {item.category}
                 </span>
-                <h3 className="text-h3 font-display text-white mb-2">{item.title}</h3>
+                <h3 className="text-h4 md:text-h3 font-display text-white mb-2 drop-shadow-md">{item.title}</h3>
                 
                 {/* Línea decorativa inferior */}
                 <div 
-                  className="h-[2px] w-0 group-hover:w-full transition-all duration-700 ease-out mt-4"
-                  style={{ backgroundImage: `linear-gradient(to right, ${item.color}, transparent)` }}
+                  className="h-[3px] w-0 group-hover:w-full transition-all duration-700 ease-out mt-4 rounded-full shadow-[0_0_10px_currentColor]"
+                  style={{ backgroundImage: `linear-gradient(to right, ${item.color}, transparent)`, color: item.color }}
                 />
               </div>
 

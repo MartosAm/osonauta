@@ -1,5 +1,6 @@
 import { MessageSquare, Rocket, MonitorPlay, Send, Compass } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import osoAstronauta from '../assets/logos/oso_vol.png';
 
 const processSteps = [
   {
@@ -94,7 +95,18 @@ const Process = ({ id }) => {
                   </div>
 
                   {/* Espacio en el lado vacío (Desktop) */}
-                  <div className="hidden md:block md:w-1/2" />
+                  <div className="hidden md:flex md:w-1/2 justify-center items-center relative">
+                    {item.step === '02' && (
+                      <img 
+                        src={osoAstronauta} 
+                        alt="Osonauta explorando" 
+                        className="w-48 lg:w-64 h-auto drop-shadow-[0_0_20px_rgba(0,180,216,0.3)] z-0" 
+                        style={{ 
+                          animation: 'float 6s ease-in-out infinite' 
+                        }}
+                      />
+                    )}
+                  </div>
 
                   {/* Tarjeta de Contenido */}
                   <div className={`w-full md:w-1/2 pl-20 md:px-12 ${isLeft ? 'md:text-right' : 'md:text-left'}`}>
