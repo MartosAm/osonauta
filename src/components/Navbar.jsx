@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import navLogo from '../assets/logos/logo.png';
+import navLogo from '../assets/images/osoblancoletras.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,10 +38,7 @@ const Navbar = () => {
           className="osn-navbar__brand flex items-center gap-3 z-50 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded hover:scale-105 transition-transform"
           aria-label="Ir al inicio"
         >
-          <img src={navLogo} alt="Logo Osonauta" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-          <span className="font-display font-bold text-xl tracking-wide hidden sm:block">
-            OSONAUTA
-          </span>
+          <img src={navLogo} alt="Logo Osonauta" className="h-10 sm:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
         </a>
 
         <ul className="osn-navbar__nav hidden md:flex items-center gap-8">

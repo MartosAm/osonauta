@@ -1,32 +1,32 @@
-import { Video, Camera, Palette, Share2 } from 'lucide-react';
+import { Film, Aperture, PenTool, Radio } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const servicesData = [
   {
     title: 'Edición de Video',
     description: 'Transformamos tus grabaciones en piezas dinámicas, atractivas y listas para impactar en Reels, TikToks o YouTube.',
-    icon: Video,
+    icon: Film,
     color: 'var(--color-primary)', // Morado
     hoverShadow: 'rgba(123,47,190,0.6)',
   },
   {
     title: 'Fotografía',
     description: 'Capturamos la esencia de tus platillos o productos con equipo profesional e iluminación de alta calidad. Directo en tu local.',
-    icon: Camera,
+    icon: Aperture,
     color: 'var(--color-secondary)', // Cyan
     hoverShadow: 'rgba(0,180,216,0.6)',
   },
   {
-    title: 'Diseño de Logos',
+    title: 'Diseño Gráfico',
     description: 'Creamos identidades visuales únicas y memorables que representan fielmente los valores y la misión de tu marca.',
-    icon: Palette,
+    icon: PenTool,
     color: 'var(--color-accent)', // Naranja
     hoverShadow: 'rgba(255,107,53,0.6)',
   },
   {
     title: 'Gestión de Redes',
     description: 'Manejamos tus plataformas sociales con estrategias de contenido, calendarios de publicación y un enfoque en el crecimiento orgánico.',
-    icon: Share2,
+    icon: Radio,
     color: '#00E676', // Un verde/cyan brillante como color adicional
     hoverShadow: 'rgba(0,230,118,0.6)',
   }
@@ -107,22 +107,20 @@ const Services = ({ id }) => {
                     />
                   </div>
                   
-                  <h3 className="text-h3 font-display text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all duration-300"
-                      style={{ 
-                        backgroundImage: `linear-gradient(to right, #fff, ${service.color})`
-                      }}>
+                  <h3 className="text-h3 font-display text-white mb-4 transition-all duration-300">
                     {service.title}
                   </h3>
                   
-                  <p className="text-body text-[var(--color-text-muted)] leading-relaxed flex-grow group-hover:text-[var(--color-text-primary)] transition-colors duration-300">
+                  <p className="text-body text-[var(--color-text-muted)] leading-relaxed flex-grow group-hover:text-[var(--color-text-primary)] transition-colors duration-300 relative z-10">
                     {service.description}
                   </p>
 
-                  {/* Detalle en la esquina - puro css styling */}
-                  <div 
-                    className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl opacity-0 group-hover:opacity-20 transition-all duration-500 rounded-bl-full pointer-events-none"
-                    style={{ fromColor: service.color, toColor: 'transparent', backgroundImage: `linear-gradient(to bottom left, ${service.color}, transparent)` }}
-                  ></div>
+                  {/* Detalle tipo tarjeta espacial */}
+                  <div className="absolute bottom-2 right-4 flex gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                     <div className="w-1 h-1 rounded-full bg-[var(--color-primary)]"></div>
+                     <div className="w-1 h-1 rounded-full bg-[var(--color-secondary)]"></div>
+                     <div className="w-1 h-1 rounded-full bg-[var(--color-accent)]"></div>
+                  </div>
                 </div>
               </div>
             );

@@ -2,6 +2,23 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Mail, MapPin, Phone, Share2 } from 'lucide-react';
 import osonautaLogo from '../assets/logos/osonauta.png';
 
+// Import local de iconos (si hiciera falta) o puro SVG temporalmente
+const InstagramIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+);
+
+const FacebookIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+);
+
+const TikTokIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round" className="w-5 h-5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+);
+
+const WhatsAppIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round" className="w-5 h-5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path></svg>
+);
+
 const Contact = ({ id }) => {
   const formRef = useScrollReveal({ threshold: 0.1 });
   const infoRef = useScrollReveal({ threshold: 0.2 });
@@ -101,17 +118,17 @@ const Contact = ({ id }) => {
                 <Share2 size={20} className="text-[var(--color-secondary)]" /> Redes Aliadas
               </h3>
               <div className="flex gap-4">
-                <a href="https://www.instagram.com/osonauta_cueva_creativa/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#E1306C] hover:text-[#E1306C] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(225,48,108,0.5)]">
-                  <span className="font-bold text-lg">IG</span>
+                <a href="https://www.instagram.com/osonauta_cueva_creativa/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#E1306C] hover:text-[#E1306C] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(225,48,108,0.5)] bg-[rgba(10,10,26,0.5)]">
+                  <InstagramIcon />
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61584631132308" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#1877F2] hover:text-[#1877F2] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(24,119,242,0.5)]">
-                  <span className="font-bold text-lg">FB</span>
+                <a href="https://www.facebook.com/profile.php?id=61584631132308" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#1877F2] hover:text-[#1877F2] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(24,119,242,0.5)] bg-[rgba(10,10,26,0.5)]">
+                  <FacebookIcon />
                 </a>
-                <a href="https://www.tiktok.com/@osonauta.studio" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#00f2fe] hover:text-[#00f2fe] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(0,242,254,0.5)]">
-                  <span className="font-bold text-lg">TK</span>
+                <a href="https://www.tiktok.com/@osonauta.studio" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#00f2fe] hover:text-[#00f2fe] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(0,242,254,0.5)] bg-[rgba(10,10,26,0.5)]">
+                  <TikTokIcon />
                 </a>
-                <a href="https://wa.me/5216182663567" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#00E676] hover:text-[#00E676] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(0,230,118,0.5)]">
-                  <span className="font-bold text-lg">WA</span>
+                <a href="https://wa.me/5216182663567" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white hover:border-[#00E676] hover:text-[#00E676] transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(0,230,118,0.5)] bg-[rgba(10,10,26,0.5)]">
+                  <WhatsAppIcon />
                 </a>
               </div>
             </div>

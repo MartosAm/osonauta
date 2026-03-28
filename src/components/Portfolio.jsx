@@ -19,18 +19,18 @@ const portfolioItems = [
   },
   {
     id: 2,
-    title: 'Pizzería Dida Sori',
-    category: 'Food Styling',
-    image: imgDidaSori,
-    color: 'var(--color-accent)', // Naranja
-    icon: ImageIcon
-  },
-  {
-    id: 3,
     title: 'Pecaminoso',
     category: 'Restaurante Comercial',
     image: imgPecaminoso,
     color: 'var(--color-secondary)', // Cyan
+    icon: ImageIcon
+  },
+  {
+    id: 3,
+    title: 'Pizzería Dida Sori',
+    category: 'Food Styling',
+    image: imgDidaSori,
+    color: 'var(--color-accent)', // Naranja
     icon: ImageIcon
   },
   {
