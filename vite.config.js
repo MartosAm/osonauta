@@ -8,4 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: '/Osonauta/', // Ajusta esto si tu repositorio en GitHub tiene otro nombre
 });
