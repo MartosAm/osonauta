@@ -99,32 +99,22 @@ const Hero = ({ id }) => {
           <div className="absolute -top-4 -right-8 w-12 h-12 border-2 border-dashed border-[var(--color-secondary)] opacity-30 rounded-full animate-[spin_10s_linear_infinite]" />
           <div className="absolute top-0 right-0 w-2 h-2 bg-[var(--color-accent)] rounded-full shadow-[0_0_10px_var(--color-accent)] animate-[ping_2s_infinite]" />
 
-          {/* Osonauta Estilizado */}
-          <div className="flex items-center justify-center text-[clamp(3.5rem,8vw,5.5rem)] leading-none mb-4 relative z-10">
-            <span 
-              className="font-bold tracking-tighter" 
+          {/* Osonauta Estilizado - Estilo Star Wars (Simétrico y estructurado) */}
+          <div className="relative z-10 w-full flex justify-center items-center py-2">
+            <h1 
+              className="text-center font-black uppercase m-0 p-0 tracking-widest"
               style={{ 
-                fontFamily: '"Archivo Black", Impact, sans-serif', 
-                color: 'var(--color-accent)', 
-                WebkitTextStroke: '2px var(--color-primary-dark)',
-                textShadow: '4px 4px 0 var(--color-primary-dark), 0 0 25px var(--color-accent)' 
+                fontFamily: '"Archivo Black", Impact, sans-serif',
+                fontSize: 'clamp(3.5rem, 9vw, 6.5rem)',
+                lineHeight: '1',
+                color: 'transparent', // Fondo hueco característico de SW
+                WebkitTextStroke: '2px #fff', // Contorno grueso definido
+                textShadow: '0 0 20px rgba(0, 242, 254, 0.4), 0 0 40px rgba(123, 47, 190, 0.4)',
+                transform: 'scaleY(1.15)', // Efecto alargado de las letras estelares épicas
               }}
             >
-              OSO
-            </span>
-            <span 
-              className="font-light tracking-[0.2em] uppercase" 
-              style={{ 
-                fontFamily: '"Space Grotesk", sans-serif', 
-                color: '#fff', 
-                textShadow: '0 0 15px var(--color-secondary)' 
-              }}
-            >
-              nauta
-            </span>
-            
-            {/* Casco o garra temática - simulado con CSS simple */}
-            <div className="absolute -top-6 -left-4 w-12 h-10 border-t-4 border-l-4 border-[var(--color-secondary)] rounded-tl-3xl opacity-60"></div>
+              OSONAUTA
+            </h1>
           </div>
         </div>
 
