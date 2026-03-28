@@ -28,3 +28,49 @@
   0%, 100% { box-shadow: 0 0 10px rgba(123,47,190,0.4); }
   50%       { box-shadow: 0 0 28px rgba(123,47,190,0.85); }
 }
+
+/* Elementos Cósmicos Universales */
+@keyframes shooting {
+  0% { transform: translate(0, 0) rotate(215deg); opacity: 1; }
+  15% { transform: translate(-300px, 300px) rotate(215deg); opacity: 0; }
+  100% { transform: translate(-300px, 300px) rotate(215deg); opacity: 0; }
+}
+
+.shooting-star-shared {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, #ffffff, transparent);
+  animation: shooting 7s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+.shooting-star-shared::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+}
+
+.mini-star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 4s ease-in-out infinite alternate;
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.distant-planet {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 20s ease-in-out infinite;
+}

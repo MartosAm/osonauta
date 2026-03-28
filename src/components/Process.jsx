@@ -45,6 +45,13 @@ const Process = ({ id }) => {
 
   return (
     <section id={id} className="osn-process relative py-24 bg-transparent overflow-hidden">
+
+      {/* Detalles Cósmicos */}
+      <div className="mini-star w-2 h-2 top-[20%] right-[8%]" style={{ animationDelay: '1s' }}></div>
+      <div className="mini-star w-1.5 h-1.5 bottom-[40%] left-[5%]" style={{ animationDelay: '3s' }}></div>
+      
+      {/* Asteroide / Planeta pequeño */}
+      <div className="distant-planet w-12 h-12 bottom-[10%] left-[20%] opacity-50 shadow-[0_0_15px_rgba(0,180,216,0.5)]" style={{ background: 'radial-gradient(circle at 30% 30%, #00B4D8, transparent)' }}></div>
       
       {/* Fondo cósmico sutil */}
       <div 

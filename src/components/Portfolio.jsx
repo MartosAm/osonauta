@@ -66,6 +66,11 @@ const Portfolio = ({ id }) => {
   return (
     <section id={id} className="osn-portfolio relative py-32 bg-transparent overflow-hidden">
       
+      {/* Detalles Cósmicos */}
+      <div className="mini-star w-2 h-2 top-[10%] left-[12%]" style={{ animationDelay: '0.2s' }}></div>
+      <div className="mini-star w-2 h-2 bottom-[15%] right-[10%]" style={{ animationDelay: '2.1s' }}></div>
+      <div className="shooting-star-shared top-[20%] left-[40%]" style={{ animationDelay: '4s' }}></div>
+
       {/* Elemento de Fondo Cósmico */}
       <div 
         className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-[#12122A]/0 via-[#4A0E8F]/10 to-transparent pointer-events-none"

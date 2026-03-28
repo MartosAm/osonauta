@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import logoOsonauta from '../assets/logos/logo.png';
 import portadaImg from '../assets/logos/portada.jpg';
+import portadaMobileImg from '../assets/logos/portada_mobile.png';
 
 const Hero = ({ id }) => {
   const [mounted, setMounted] = useState(false);
@@ -17,9 +18,24 @@ const Hero = ({ id }) => {
       id={id} 
       className="osn-hero min-h-screen flex flex-col items-center justify-center relative pt-24 pb-16 overflow-hidden"
     >
+      {/* Elementos Cósmicos */}
+      <div className="mini-star w-1 h-1 top-[15%] left-[20%]" style={{ animationDelay: '0s' }}></div>
+      <div className="mini-star w-2 h-2 top-[25%] right-[15%]" style={{ animationDelay: '1s' }}></div>
+      <div className="mini-star w-1.5 h-1.5 bottom-[20%] left-[10%]" style={{ animationDelay: '2s' }}></div>
+      <div className="shooting-star-shared top-[10%] right-[30%]"></div>
+      <div className="shooting-star-shared top-[40%] right-[10%]" style={{ animationDelay: '3s' }}></div>
+
+      {/* Fondo para Desktop */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
+        className="hidden md:block absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
         style={{ backgroundImage: `url(${portadaImg})` }}
+        aria-hidden="true"
+      ></div>
+
+      {/* Fondo para Móviles */}
+      <div 
+        className="block md:hidden absolute inset-0 z-0 bg-cover bg-[center_top_20%] bg-no-repeat opacity-50"
+        style={{ backgroundImage: `url(${portadaMobileImg})` }}
         aria-hidden="true"
       ></div>
 

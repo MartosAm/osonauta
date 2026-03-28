@@ -96,6 +96,10 @@ const Testimonials = ({ id }) => {
   return (
     <section id={id} className="osn-testimonials relative py-24 bg-transparent overflow-hidden">
       
+      {/* Detalles Cósmicos */}
+      <div className="mini-star w-1.5 h-1.5 top-[15%] left-[25%]" style={{ animationDelay: '1.2s' }}></div>
+      <div className="mini-star w-2 h-2 bottom-[10%] right-[30%]" style={{ animationDelay: '3.5s' }}></div>
+
       {/* HUD de Comunicación Intergaláctica de Fondo */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] border border-[rgba(0,180,216,0.05)] rounded-full flex items-center justify-center opacity-30 pointer-events-none" 

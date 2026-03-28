@@ -39,6 +39,11 @@ const Services = ({ id }) => {
   return (
     <section id={id} className="osn-services relative py-24 bg-transparent overflow-hidden">
       
+      {/* Detalles Cósmicos */}
+      <div className="mini-star w-1.5 h-1.5 top-[10%] left-[8%]" style={{ animationDelay: '2.5s' }}></div>
+      <div className="mini-star w-2 h-2 bottom-[15%] right-[12%]" style={{ animationDelay: '0.8s' }}></div>
+      <div className="shooting-star-shared top-[30%] left-[10%]" style={{ animationDelay: '5s' }}></div>
+      
       {/* Nebulosas sutiles para fondo */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-10 mix-blend-screen pointer-events-none"

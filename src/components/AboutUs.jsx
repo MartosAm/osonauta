@@ -8,6 +8,14 @@ const AboutUs = ({ id }) => {
 
   return (
     <section id={id} className="osn-about relative py-24 bg-transparent overflow-hidden">
+
+      {/* Detalles Cósmicos */}
+      <div className="mini-star w-2 h-2 top-[30%] left-[5%]" style={{ animationDelay: '0.5s' }}></div>
+      <div className="mini-star w-1 h-1 bottom-[30%] right-[8%]" style={{ animationDelay: '1.5s' }}></div>
+      <div className="shooting-star-shared top-[50%] right-[20%]" style={{ animationDelay: '2s' }}></div>
+      
+      {/* Planeta lejano */}
+      <div className="distant-planet w-20 h-20 top-[10%] right-[15%] opacity-40 shadow-[0_0_20px_rgba(255,107,53,0.5)]" style={{ background: 'radial-gradient(circle at 30% 30%, #FF6B35, transparent)' }}></div>
       
       {/* NEBULOSAS DE FONDO */}
       <div 
