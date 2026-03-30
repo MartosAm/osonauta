@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import logoOsonauta from '../assets/images/osonauta logo blanco.png';
+import logoOsonauta from '../assets/images/osonauta logo blanco.webp';
 
 const Hero = ({ id }) => {
   const [mounted, setMounted] = useState(false);

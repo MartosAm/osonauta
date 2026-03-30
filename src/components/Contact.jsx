@@ -1,6 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Mail, MapPin, Phone, Share2 } from 'lucide-react';
-import osonautaLogo from '../assets/logos/osonauta.png';
+import osonautaLogo from '../assets/logos/osonauta.webp';
 
 // Import local de iconos (si hiciera falta) o puro SVG temporalmente
 const InstagramIcon = () => (

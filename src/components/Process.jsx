@@ -1,6 +1,6 @@
 import { MessageSquare, Rocket, MonitorPlay, Send, Compass } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import osoAstronauta from '../assets/logos/oso_vol.png';
+import osoAstronauta from '../assets/logos/oso_vol.webp';
 
 const processSteps = [
   {

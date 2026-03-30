@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
-import imgDidaSori from '../assets/portafolios/dida sori/rs 2.jpg';
-import imgFreshFades from '../assets/portafolios/fresh fades /rs 14.jpg';
-import imgMaddeta from '../assets/portafolios/maddeta/rs 32.jpg';
-import imgCafeBrune from '../assets/portafolios/cafe brune/cafe brune rs 2.jpg';
-import imgComunidad from '../assets/portafolios/comunidad/fotos 1.jpg';
-import imgPecaminoso from '../assets/portafolios/pecaminoso/post 3.jpg';
+import imgDidaSori from '../assets/portafolios/dida sori/rs 2.webp';
+import imgFreshFades from '../assets/portafolios/fresh fades /rs 14.webp';
+import imgMaddeta from '../assets/portafolios/maddeta/rs 32.webp';
+import imgCafeBrune from '../assets/portafolios/cafe brune/cafe brune rs 2.webp';
+import imgComunidad from '../assets/portafolios/comunidad/fotos 1.webp';
+import imgPecaminoso from '../assets/portafolios/pecaminoso/post 3.webp';
 
 const testimonialsData = [
   {

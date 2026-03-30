@@ -65,13 +65,27 @@ body {
   background: var(--color-primary-dark);
 }
 
-/* El Fondo Cósmico Base */
+/* El Fondo Cósmico Base Animado (Nebulosa) */
 .universe-bg {
   background-color: var(--color-bg-base);
   background-image:
-    radial-gradient(ellipse at 10% 20%, rgba(123, 47, 190, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%, rgba(0, 180, 216, 0.20) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 107, 53, 0.10) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 10%, rgba(224, 64, 251, 0.15) 0%, transparent 40%);
+    radial-gradient(ellipse at 10% 20%, rgba(123, 47, 190, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(0, 180, 216, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 10%, rgba(224, 64, 251, 0.2) 0%, transparent 40%);
   background-attachment: fixed;
+  background-size: 150% 150%;
+  animation: nebula-breathe 20s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-breathe {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
 }
