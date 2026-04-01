@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-export function useScrollReveal(options = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }) {
+export function useScrollReveal(options = {}) {
+  const threshold = options.threshold ?? 0.1;
+  const rootMargin = options.rootMargin ?? '0px 0px -50px 0px';
   const ref = useRef(null);
 
   useEffect(() => {
@@ -9,7 +11,7 @@ export function useScrollReveal(options = { threshold: 0.1, rootMargin: '0px 0px
         entry.target.style.animation = 'fadeSlideUp 0.8s ease-out forwards';
         observer.unobserve(entry.target);
       }
-    }, options);
+    }, { threshold, rootMargin });
 
     if (ref.current) {
       // Inicia oculto para que la animación lo muestre
@@ -22,7 +24,7 @@ export function useScrollReveal(options = { threshold: 0.1, rootMargin: '0px 0px
         observer.unobserve(ref.current);
       }
     };
-  }, [options]);
+  }, [threshold, rootMargin]);
 
   return ref;
 }
