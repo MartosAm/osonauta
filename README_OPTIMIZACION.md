@@ -21,6 +21,12 @@ Refactors aplicados:
   - pausa al ocultar pestaña
   - respeta `prefers-reduced-motion`
 - Se marcaron imagenes decorativas/no criticas con `loading="lazy"` y `decoding="async"`.
+- Se optimizaron assets pesados sin cambiar composicion visual de la interfaz:
+  - `comunidad/fotos 1.webp`: 3264x4928 (511.7 KB) -> 1400x2114 (82.4 KB)
+  - `logos/osonauta.webp`: 1024x1536 (237.5 KB) -> 720x1080 (107.9 KB)
+  - `logos/oso_vol.webp`: 1024x1536 (196.5 KB) -> 720x1080 (92.7 KB)
+  - `dida sori/rs 2.webp`: 1080x1350 (306.2 KB) -> 960x1200 (199.7 KB)
+  - `cafe brune rs 2.webp`: 1080x1350 (238.1 KB) -> 960x1200 (153.6 KB)
 
 ## Metricas de build
 
@@ -32,15 +38,16 @@ Luego de los refactors:
 - `1745 modules transformed`
 - se elimino el chunk `Clients-*.js`
 - build OK con `vite build`
+- nueva salida de assets en `dist` con top mas bajo: max ~204 KB entre imagenes usadas en build
 
 ## Assets mas pesados detectados
 
-Top archivos (aprox):
-- `src/assets/portafolios/comunidad/fotos 1.webp` -> 520 KB
-- `src/assets/portafolios/dida sori/rs 2.webp` -> 316 KB
-- `src/assets/portafolios/cafe brune/cafe brune rs 2.webp` -> 248 KB
-- `src/assets/logos/osonauta.webp` -> 248 KB
-- `src/assets/logos/oso_vol.webp` -> 208 KB
+Top actuales (aprox):
+- `src/assets/portafolios/dida sori/rs 2.webp` -> 208 KB
+- `src/assets/portafolios/cafe brune/cafe brune rs 2.webp` -> 164 KB
+- `src/assets/portafolios/fresh fades /rs 14.webp` -> 120 KB
+- `src/assets/logos/osonauta.webp` -> 116 KB
+- `src/assets/logos/oso_vol.webp` -> 104 KB
 
 ## Flujo recomendado para imagenes
 
