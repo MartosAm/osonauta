@@ -36,6 +36,8 @@ const Contact = ({ id }) => {
       <img
         src={osonautaLogo}
         alt="Osonauta Studio"
+        loading="lazy"
+        decoding="async"
         className="absolute bottom-4 left-4 md:bottom-10 md:left-10 w-48 md:w-72 opacity-80 pointer-events-none z-0 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-opacity duration-500 hover:opacity-100"
       />
 

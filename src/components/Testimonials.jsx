@@ -170,6 +170,8 @@ const Testimonials = ({ id }) => {
                     <img 
                       src={t.image} 
                       alt={t.client}
+                      loading="lazy"
+                      decoding="async"
                       className="absolute top-0 -right-4 md:top-[10%] md:-right-8 w-16 h-16 md:w-24 md:h-24 rounded-full object-cover border-2 border-[var(--color-bg-base)] shadow-[0_0_15px_rgba(0,0,0,0.8)]"
                       style={{ animation: 'float 4s ease-in-out infinite' }}
                     />

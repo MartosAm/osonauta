@@ -107,6 +107,8 @@ const Process = ({ id }) => {
                       <img 
                         src={osoAstronauta} 
                         alt="Osonauta explorando" 
+                        loading="lazy"
+                        decoding="async"
                         className="w-48 lg:w-64 h-auto drop-shadow-[0_0_20px_rgba(0,180,216,0.3)] z-0" 
                         style={{ 
                           animation: 'float 6s ease-in-out infinite' 
