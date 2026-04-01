@@ -7,7 +7,12 @@ const StarField = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let animationFrameId;
+    if (!ctx) return;
+
+    const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let animationFrameId = 0;
+    let isAnimating = false;
+    let speed = 2;
 
     // Colores estelares permitidos
     const STAR_COLORS = ['#FFFFFF', '#00B4D8', '#C084FC', '#FF6B35'];
@@ -29,9 +34,10 @@ const StarField = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Un poco más de estrellas para mejor percepción de velocidad espacial
+      // Reducimos densidad para bajar consumo en CPU/GPU, sobre todo en mobile
       const isMobile = window.innerWidth < 768;
-      const numStars = isMobile ? 150 : 400;
+      const numStars = isMobile ? 90 : 240;
+      speed = isMobile ? 1.2 : 2;
 
       stars = [];
       for (let i = 0; i < numStars; i++) {
@@ -46,9 +52,6 @@ const StarField = () => {
 
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-
-      // Velocidad constante del viaje espacial
-      const speed = window.innerWidth < 768 ? 1.5 : 2.5;
 
       stars.forEach((star) => {
         // Acercar la estrella hacia el observador
@@ -95,18 +98,53 @@ const StarField = () => {
       animationFrameId = requestAnimationFrame(drawStars);
     };
 
+    const startAnimation = () => {
+      if (isAnimating || reduceMotionQuery.matches) return;
+      isAnimating = true;
+      drawStars();
+    };
+
+    const stopAnimation = () => {
+      if (!isAnimating) return;
+      isAnimating = false;
+      cancelAnimationFrame(animationFrameId);
+    };
+
     // Inicializar el espacio y la animación
     initStars();
-    drawStars();
+    startAnimation();
 
     const handleResize = () => {
       initStars();
     };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else {
+        startAnimation();
+      }
+    };
+
+    const handleReducedMotionChange = () => {
+      if (reduceMotionQuery.matches) {
+        stopAnimation();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      } else {
+        initStars();
+        startAnimation();
+      }
+    };
+
     window.addEventListener('resize', handleResize);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    reduceMotionQuery.addEventListener('change', handleReducedMotionChange);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      reduceMotionQuery.removeEventListener('change', handleReducedMotionChange);
+      stopAnimation();
     };
   }, []);
 
