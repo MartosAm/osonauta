@@ -43,13 +43,22 @@ const AboutUs = ({ id }) => {
         aria-hidden="true"
       >
         <div 
-          className="absolute inset-x-1/4 inset-y-1/4 rounded-full bg-gradient-to-tr from-[var(--color-bg-base)] via-[#4A0E8F] to-[var(--color-secondary)] shadow-[0_0_80px_rgba(123,47,190,0.5)]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[25%] rounded-[50%] border-[6px] border-[rgba(0,180,216,0.2)] shadow-[0_0_20px_rgba(0,180,216,0.2)] rotate-[-20deg]"
+          style={{ animation: 'float 8s ease-in-out infinite reverse' }}
+        />
+        <div 
+          className="absolute inset-x-1/4 inset-y-1/4 z-10 rounded-full bg-gradient-to-tr from-[var(--color-bg-base)] via-[#4A0E8F] to-[var(--color-secondary)] shadow-[0_0_80px_rgba(123,47,190,0.5)]"
           style={{ animation: 'float 8s ease-in-out infinite' }}
         />
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[25%] rounded-[50%] border-[6px] border-[rgba(0,180,216,0.3)] shadow-[0_0_30px_rgba(0,180,216,0.4)] rotate-[-20deg]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[25%] rotate-[-20deg] z-20"
           style={{ animation: 'float 8s ease-in-out infinite reverse' }}
-        />
+        >
+          <div
+            className="absolute inset-0 rounded-[50%] border-[6px] border-[rgba(0,180,216,0.55)] shadow-[0_0_30px_rgba(0,180,216,0.45)]"
+            style={{ clipPath: 'inset(50% 0 0 0)' }}
+          />
+        </div>
       </div>
 
       <Sparkles 
