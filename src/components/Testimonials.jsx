@@ -3,11 +3,18 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import imgDidaSori from '../assets/portafolios/dida sori/rs 2.webp';
-import imgFreshFades from '../assets/portafolios/fresh fades /rs 14.webp';
+import imgCharco from '../assets/portafolios/charco/1.webp';
 import imgMaddeta from '../assets/portafolios/maddeta/rs 32.webp';
 import imgCafeBrune from '../assets/portafolios/cafe brune/cafe brune rs 2.webp';
 import imgComunidad from '../assets/portafolios/comunidad/fotos 1.webp';
 import imgPecaminoso from '../assets/portafolios/pecaminoso/post 3.webp';
+
+import logoBrune from '../assets/portafolios/compartido/BRUNÉ.webp';
+import logoComunidad from '../assets/portafolios/compartido/COMUNIDAD.webp';
+import logoDidaSori from '../assets/portafolios/compartido/DIDA SORI.webp';
+import logoElCharco from '../assets/portafolios/compartido/EL CHARCO.webp';
+import logoMadetta from '../assets/portafolios/compartido/MADETTA.webp';
+import logoPecaminoso from '../assets/portafolios/compartido/PECAMINOSO.webp';
 
 const testimonialsData = [
   {
@@ -22,13 +29,13 @@ const testimonialsData = [
   },
   {
     id: 2,
-    client: 'Fresh Fades',
-    sector: 'Barbería',
-    text: '"El nivel de profesionalismo de Osonauta es de otra galaxia. Reflejaron el estilo urbano y fresco de la barbería a la perfección, los videos quedaron increíbles."',
-    image: imgFreshFades,
-    planetColor: 'radial-gradient(circle at 30% 30%, #00E676, #004d27)',
-    ring: false,
-    ringColor: 'transparent'
+    client: 'El Charco',
+    sector: 'Restaurante de Mariscos',
+    text: '"Lograron retratar la frescura de nuestros mariscos y el ambiente del restaurante con una calidad brutal. El contenido nos ayudó a atraer más clientes y reservas."',
+    image: imgCharco,
+    planetColor: 'radial-gradient(circle at 30% 30%, #17BEBB, #0b4f6c)',
+    ring: true,
+    ringColor: 'rgba(23,190,187,0.35)'
   },
   {
     id: 3,
@@ -72,18 +79,19 @@ const testimonialsData = [
   }
 ];
 
+const alliedLogos = [
+  { id: 'dida-sori', name: 'Dida Sori', image: logoDidaSori },
+  { id: 'charco', name: 'El Charco', image: logoElCharco },
+  { id: 'madetta', name: 'Madetta', image: logoMadetta },
+  { id: 'brune', name: 'Café Brune', image: logoBrune },
+  { id: 'pecaminoso', name: 'Pecaminoso', image: logoPecaminoso },
+  { id: 'comunidad', name: 'Comunidad', image: logoComunidad }
+];
+
 const Testimonials = ({ id }) => {
   const titleRef = useScrollReveal({ threshold: 0.1 });
   const sliderRef = useScrollReveal({ threshold: 0.2 });
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Auto-slide effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handleNext = () => {
     setActiveIndex((current) => (current + 1) % testimonialsData.length);
@@ -92,6 +100,14 @@ const Testimonials = ({ id }) => {
   const handlePrev = () => {
     setActiveIndex((current) => (current === 0 ? testimonialsData.length - 1 : current - 1));
   };
+
+  // Auto-slide effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % testimonialsData.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id={id} className="osn-testimonials relative py-24 bg-transparent overflow-hidden">
@@ -215,6 +231,28 @@ const Testimonials = ({ id }) => {
                 aria-label={`Ir a transmisión ${idx + 1}`}
               />
             ))}
+          </div>
+
+          <div className="mt-10 pt-8 border-t border-[rgba(255,255,255,0.08)]">
+            <p className="text-small text-[var(--color-text-muted)] text-center uppercase tracking-[0.18em] mb-5">
+              Señales Aliadas
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+              {alliedLogos.map((logo) => (
+                <div
+                  key={logo.id}
+                  className="h-16 bg-[rgba(10,10,26,0.45)] border border-[rgba(255,255,255,0.08)] rounded-xl flex items-center justify-center px-3 transition-all duration-300 hover:border-[var(--color-secondary)] hover:shadow-[0_0_20px_rgba(0,180,216,0.18)]"
+                >
+                  <img
+                    src={logo.image}
+                    alt={`Logo ${logo.name}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-8 md:max-h-9 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
