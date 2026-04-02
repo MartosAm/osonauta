@@ -2,9 +2,9 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Play, Image as ImageIcon } from 'lucide-react';
 
 import imgCafeBrune from '../assets/portafolios/cafe brune/cafe brune rs 2.webp';
+import imgCharco from '../assets/portafolios/charco/1.webp';
 import imgComunidad from '../assets/portafolios/comunidad/fotos 1.webp';
 import imgDidaSori from '../assets/portafolios/dida sori/rs 2.webp';
-import imgFreshFades from '../assets/portafolios/fresh fades /rs 14.webp';
 import imgMaddeta from '../assets/portafolios/maddeta/rs 32.webp';
 import imgPecaminoso from '../assets/portafolios/pecaminoso/post 3.webp';
 
@@ -43,10 +43,10 @@ const portfolioItems = [
   },
   {
     id: 5,
-    title: 'Fresh Fades Barber',
-    category: 'Identidad & Estilo',
-    image: imgFreshFades,
-    color: '#00E676', // Verde brillante
+    title: 'El Charco',
+    category: 'Restaurante de Mariscos',
+    image: imgCharco,
+    color: '#17BEBB', // Turquesa marino
     icon: ImageIcon
   },
   {
