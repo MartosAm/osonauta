@@ -23,6 +23,7 @@ const testimonialsData = [
     sector: 'Pizzería',
     text: '"Lograron capturar exactamente lo antojadizas que son nuestras pizzas. Desde que empezamos a subir el contenido, mucha más gente nos visita preguntando por lo que vieron en redes."',
     image: imgDidaSori,
+    logo: logoDidaSori,
     planetColor: 'radial-gradient(circle at 30% 30%, #ff6b35, #8b2500)',
     ring: true,
     ringColor: 'rgba(255,107,53,0.4)'
@@ -33,6 +34,7 @@ const testimonialsData = [
     sector: 'Restaurante de Mariscos',
     text: '"Lograron retratar la frescura de nuestros mariscos y el ambiente del restaurante con una calidad brutal. El contenido nos ayudó a atraer más clientes y reservas."',
     image: imgCharco,
+    logo: logoElCharco,
     planetColor: 'radial-gradient(circle at 30% 30%, #17BEBB, #0b4f6c)',
     ring: true,
     ringColor: 'rgba(23,190,187,0.35)'
@@ -43,6 +45,7 @@ const testimonialsData = [
     sector: 'Interiores & Diseño',
     text: '"Entendieron muy bien la iluminación y los ángulos requeridos para resaltar la calidad de nuestros espacios. Tienen ojo para el diseño y eso se nota en el resultado final."',
     image: imgMaddeta,
+    logo: logoMadetta,
     planetColor: 'radial-gradient(circle at 30% 30%, #E0A96D, #5c3b18)',
     ring: true,
     ringColor: 'rgba(224,169,109,0.3)'
@@ -53,6 +56,7 @@ const testimonialsData = [
     sector: 'Cafetería',
     text: '"La vibra de nuestro café se transmitió perfectamente a través de sus fotografías. Capturaron el aroma y la calidez de cada taza, ¡nos encantó!"',
     image: imgCafeBrune,
+    logo: logoBrune,
     planetColor: 'radial-gradient(circle at 30% 30%, #d4a373, #5e3023)',
     ring: false,
     ringColor: 'transparent'
@@ -63,6 +67,7 @@ const testimonialsData = [
     sector: 'Restaurante',
     text: '"Nuestros platillos ahora lucen irresistibles en todas las plataformas. Sus videos y fotos han traído a docenas de comensales nuevos antojados, un excelente servicio."',
     image: imgPecaminoso,
+    logo: logoPecaminoso,
     planetColor: 'radial-gradient(circle at 30% 30%, #00b4d8, #0077b6)',
     ring: true,
     ringColor: 'rgba(0,180,216,0.4)'
@@ -73,19 +78,11 @@ const testimonialsData = [
     sector: 'Sesión Fotográfica',
     text: '"Una sesión fotográfica con gran sensibilidad. Supieron capturar los momentos más emotivos y sinceros de nuestra comunidad con muchísimo respeto y calidad."',
     image: imgComunidad,
+    logo: logoComunidad,
     planetColor: 'radial-gradient(circle at 30% 30%, #9d4edd, #3c096c)',
     ring: false,
     ringColor: 'transparent'
   }
-];
-
-const alliedLogos = [
-  { id: 'dida-sori', name: 'Dida Sori', image: logoDidaSori },
-  { id: 'charco', name: 'El Charco', image: logoElCharco },
-  { id: 'madetta', name: 'Madetta', image: logoMadetta },
-  { id: 'brune', name: 'Café Brune', image: logoBrune },
-  { id: 'pecaminoso', name: 'Pecaminoso', image: logoPecaminoso },
-  { id: 'comunidad', name: 'Comunidad', image: logoComunidad }
 ];
 
 const Testimonials = ({ id }) => {
@@ -162,24 +159,37 @@ const Testimonials = ({ id }) => {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 px-6 md:px-12">
               
               {/* Representación Planeta de la Empresa */}
-              <div className="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+              <div className="flex flex-col items-center flex-shrink-0">
+                <div className="relative w-32 h-32 md:w-48 md:h-48">
                 {testimonialsData.map((t, idx) => (
                   <div 
                     key={t.id}
                     className={`absolute inset-0 transition-all duration-1000 transform ${idx === activeIndex ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-90'}`}
                   >
+                    {/* Parte trasera del anillo */}
+                    {t.ring && (
+                      <div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[30%] border-[5px] rounded-[50%] rotate-[-20deg] z-0"
+                        style={{ borderColor: t.ringColor, opacity: 0.45 }}
+                      />
+                    )}
+
                     {/* Planeta CSS */}
                     <div 
-                      className="absolute inset-0 rounded-full shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.9),_0_0_15px_rgba(255,255,255,0.1)]"
+                      className="absolute inset-0 z-10 rounded-full shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.9),_0_0_15px_rgba(255,255,255,0.1)]"
                       style={{ background: t.planetColor, animation: 'spin 20s linear infinite' }}
                     />
                     
-                    {/* Anillo del planeta (Condicional) */}
+                    {/* Parte frontal del anillo */}
                     {t.ring && (
-                      <div 
-                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[30%] border-[5px] rounded-[50%] rotate-[-20deg]" 
-                         style={{ borderColor: t.ringColor }}
-                      />
+                      <div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[30%] rotate-[-20deg] z-20"
+                      >
+                        <div
+                          className="absolute inset-0 rounded-[50%] border-[5px]"
+                          style={{ borderColor: t.ringColor, clipPath: 'inset(52% 0 0 0)' }}
+                        />
+                      </div>
                     )}
 
                     {/* Satélite (Foto pequeña orbitando) */}
@@ -188,11 +198,22 @@ const Testimonials = ({ id }) => {
                       alt={t.client}
                       loading="lazy"
                       decoding="async"
-                      className="absolute top-0 -right-4 md:top-[10%] md:-right-8 w-16 h-16 md:w-24 md:h-24 rounded-full object-cover border-2 border-[var(--color-bg-base)] shadow-[0_0_15px_rgba(0,0,0,0.8)]"
+                      className="absolute top-0 -right-4 md:top-[10%] md:-right-8 w-16 h-16 md:w-24 md:h-24 rounded-full object-cover border-2 border-[var(--color-bg-base)] shadow-[0_0_15px_rgba(0,0,0,0.8)] z-30"
                       style={{ animation: 'float 4s ease-in-out infinite' }}
                     />
                   </div>
                 ))}
+                </div>
+
+                <div className="mt-6 w-36 md:w-44 h-14 bg-[rgba(10,10,26,0.65)] border border-[rgba(255,255,255,0.14)] rounded-xl px-3 flex items-center justify-center shadow-[0_0_18px_rgba(0,0,0,0.35)]">
+                  <img
+                    src={testimonialsData[activeIndex].logo}
+                    alt={`Logo ${testimonialsData[activeIndex].client}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-8 w-auto object-contain"
+                  />
+                </div>
               </div>
 
               {/* Mensaje */}
@@ -231,28 +252,6 @@ const Testimonials = ({ id }) => {
                 aria-label={`Ir a transmisión ${idx + 1}`}
               />
             ))}
-          </div>
-
-          <div className="mt-10 pt-8 border-t border-[rgba(255,255,255,0.08)]">
-            <p className="text-small text-[var(--color-text-muted)] text-center uppercase tracking-[0.18em] mb-5">
-              Señales Aliadas
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-              {alliedLogos.map((logo) => (
-                <div
-                  key={logo.id}
-                  className="h-16 bg-[rgba(10,10,26,0.45)] border border-[rgba(255,255,255,0.08)] rounded-xl flex items-center justify-center px-3 transition-all duration-300 hover:border-[var(--color-secondary)] hover:shadow-[0_0_20px_rgba(0,180,216,0.18)]"
-                >
-                  <img
-                    src={logo.image}
-                    alt={`Logo ${logo.name}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-8 md:max-h-9 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-            </div>
           </div>
 
         </div>

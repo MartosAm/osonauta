@@ -7,12 +7,12 @@ const BUSINESS_LABELS = {
   charco: 'El Charco',
   comunidad: 'Comunidad',
   'dida sori': 'Dida Sori',
-  'fresh fades': 'Fresh Fades',
   maddeta: 'Madetta',
   pecaminoso: 'Pecaminoso'
 };
 
-const BUSINESS_ORDER = ['charco', 'pecaminoso', 'cafe brune', 'dida sori', 'maddeta', 'comunidad', 'fresh fades'];
+const BUSINESS_ORDER = ['charco', 'pecaminoso', 'cafe brune', 'dida sori', 'maddeta', 'comunidad'];
+const EXCLUDED_BUSINESSES = new Set(['compartido', 'fresh fades']);
 
 const portfolioImages = import.meta.glob('../assets/portafolios/**/*.webp', {
   eager: true,
@@ -37,7 +37,7 @@ const buildGalleryByBusiness = () => {
     const fileName = parts[parts.length - 1] ?? '';
     const businessId = toBusinessId(folderName);
 
-    if (!businessId || businessId === 'compartido') return;
+    if (!businessId || EXCLUDED_BUSINESSES.has(businessId)) return;
 
     if (!grouped[businessId]) {
       grouped[businessId] = {
@@ -145,7 +145,12 @@ const Gallery = ({ id }) => {
                   }`}
                   aria-pressed={isActive}
                 >
-                  {business.name}
+                  <span className="inline-flex items-center gap-2">
+                    {business.name}
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full border ${isActive ? 'border-white/60 bg-white/20 text-white' : 'border-white/20 bg-white/5 text-[var(--color-text-muted)]'}`}>
+                      {business.images.length}
+                    </span>
+                  </span>
                 </button>
               );
             })}
