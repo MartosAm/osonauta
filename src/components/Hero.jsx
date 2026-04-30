@@ -82,6 +82,7 @@ const Hero = ({ id }) => {
              <img 
                src={logoOsonauta} 
                alt="Logo Osonauta - Oso Astronauta" 
+               fetchPriority="high"
                className="w-60 h-60 md:w-80 md:h-80 object-contain relative z-10 drop-shadow-[0_25px_25px_rgba(0,0,0,0.8)]" 
                style={{ transform: 'translateZ(40px)' }}
              />
