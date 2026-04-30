@@ -1,4 +1,67 @@
+import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+
+const shortsIds = [
+  'Pw6h-Us-kQ0',
+  'vnMYG3U9fio',
+  '4aa53788xog',
+  'YzN77tJ9TQ8',
+  'svMYD_Dkmkw',
+  'NiWHYS4a71I',
+  's7uynnO0edk',
+  's8SwK4kUoR0'
+];
+
+const ShortVideo = ({ videoId, index }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div 
+      className="relative group h-[28rem] rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.05)] bg-[rgba(10,10,26,0.6)] backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[var(--color-secondary)]/50 cursor-pointer"
+      style={{
+        animation: `float ${6 + (index % 4)}s ease-in-out infinite alternate`,
+        animationDelay: `${index * 0.2}s`
+      }}
+      onClick={() => setIsLoaded(true)}
+    >
+      {isLoaded ? (
+        <iframe
+          className="w-full h-full"
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`}
+          title={`YouTube Short ${videoId}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      ) : (
+        <>
+          {/* Thumbnail */}
+          <img 
+            src={`https://i.ytimg.com/vi/${videoId}/hq720.jpg`} 
+            alt="Short Thumbnail" 
+            className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+            onError={(e) => { e.target.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` }}
+            loading="lazy"
+          />
+          {/* Play Button Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+            <div className="w-16 h-16 rounded-full bg-[var(--color-secondary)]/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_var(--color-secondary)] backdrop-blur-sm">
+              <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+          {/* Decoración */}
+          <div className="absolute top-4 left-4 flex gap-2">
+            <div className="w-2 h-2 rounded-full bg-red-500/50 group-hover:bg-red-500 shadow-[0_0_10px_red]" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500/50 group-hover:bg-yellow-500 shadow-[0_0_10px_yellow]" />
+            <div className="w-2 h-2 rounded-full bg-green-500/50 group-hover:bg-green-500 shadow-[0_0_10px_green]" />
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 const SocialMedia = ({ id }) => {
   const gridRef = useScrollReveal({ threshold: 0.1 });
@@ -21,51 +84,18 @@ const SocialMedia = ({ id }) => {
         </p>
       </div>
 
-      {/* Grid de Redes Sociales (Placeholders) */}
+      {/* Grid de YouTube Shorts */}
       <div ref={gridRef} className="max-w-7xl mx-auto px-6 relative z-10" style={{ opacity: 0 }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          {[...Array(4)].map((_, i) => (
-            <div 
-              key={i} 
-              className="relative group h-80 rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.05)] bg-[rgba(10,10,26,0.6)] backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-[1.03] hover:border-[var(--color-secondary)]/50 cursor-pointer"
-              style={{
-                animation: `float ${6 + i}s ease-in-out infinite alternate`,
-                animationDelay: `${i * 0.5}s`
-              }}
-            >
-              <div 
-                className="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
-              
-              {/* Marco Interfaz Espacial */}
-              <div className="absolute top-4 left-4 flex gap-2">
-                <div className="w-2 h-2 rounded-full bg-red-500/50 group-hover:bg-red-500 shadow-[0_0_10px_red]" />
-                <div className="w-2 h-2 rounded-full bg-yellow-500/50 group-hover:bg-yellow-500 shadow-[0_0_10px_yellow]" />
-                <div className="w-2 h-2 rounded-full bg-green-500/50 group-hover:bg-green-500 shadow-[0_0_10px_green]" />
-              </div>
-
-              <div className="absolute top-4 right-4 text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] group-hover:text-[var(--color-secondary)] transition-colors">
-                Recibiendo...
-              </div>
-
-              {/* Contenido Placeholder */}
-              <div className="absolute inset-0 flex flex-col justify-center items-center p-8 text-center text-[var(--color-text-muted)] group-hover:text-white transition-colors duration-300">
-                <div className="w-16 h-16 rounded-full border border-dashed border-[var(--color-text-muted)] group-hover:border-[var(--color-secondary)] flex items-center justify-center mb-4 group-hover:rotate-180 transition-all duration-1000">
-                  <span className="font-display font-bold">+</span>
-                </div>
-                <p className="text-sm tracking-wider uppercase opacity-50 group-hover:opacity-100">Post #{i + 1}</p>
-                <div className="w-8 h-[1px] bg-[var(--color-text-muted)]/30 mx-auto mt-4 group-hover:w-16 group-hover:bg-[var(--color-secondary)] transition-all duration-300" />
-              </div>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {shortsIds.map((videoId, i) => (
+            <ShortVideo key={videoId} videoId={videoId} index={i} />
           ))}
-
         </div>
 
         {/* Botón Central Flotante */}
         <div className="mt-20 flex justify-center">
-          <a href="#" className="relative inline-flex items-center gap-4 px-10 py-5 bg-transparent border border-[var(--color-secondary)] rounded-full text-white font-display uppercase tracking-widest hover:bg-[var(--color-secondary)]/10 transition-all duration-300 group overflow-hidden">
-            <span className="relative z-10">Conectar al Servidor Global</span>
+          <a href="https://www.youtube.com/@osonauta" target="_blank" rel="noopener noreferrer" className="relative inline-flex items-center gap-4 px-10 py-5 bg-transparent border border-[var(--color-secondary)] rounded-full text-white font-display uppercase tracking-widest hover:bg-[var(--color-secondary)]/10 transition-all duration-300 group overflow-hidden">
+            <span className="relative z-10">Ver más en YouTube</span>
             <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)] shadow-[0_0_10px_var(--color-secondary)] group-hover:scale-[3] transition-transform duration-500 relative z-10" />
             
             {/* Destello de fondo hover */}
