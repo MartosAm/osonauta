@@ -2,13 +2,6 @@ import { useEffect, useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
-import imgDidaSori from '../assets/portafolios/dida sori/rs 2.webp';
-import imgCharco from '../assets/portafolios/charco/1.webp';
-import imgMaddeta from '../assets/portafolios/maddeta/rs 32.webp';
-import imgCafeBrune from '../assets/portafolios/cafe brune/cafe brune rs 2.webp';
-import imgComunidad from '../assets/portafolios/comunidad/fotos 1.webp';
-import imgPecaminoso from '../assets/portafolios/pecaminoso/post 3.webp';
-
 import logoBrune from '../assets/portafolios/compartido/BRUNÉ.webp';
 import logoComunidad from '../assets/portafolios/compartido/COMUNIDAD.webp';
 import logoDidaSori from '../assets/portafolios/compartido/DIDA SORI.webp';
@@ -22,7 +15,6 @@ const testimonialsData = [
     client: 'Dida Sori',
     sector: 'Pizzería',
     text: '"Lograron capturar exactamente lo antojadizas que son nuestras pizzas. Desde que empezamos a subir el contenido, mucha más gente nos visita preguntando por lo que vieron en redes."',
-    image: imgDidaSori,
     logo: logoDidaSori,
     planetColor: 'radial-gradient(circle at 30% 30%, #ff6b35, #8b2500)',
     ring: true,
@@ -33,7 +25,6 @@ const testimonialsData = [
     client: 'El Charco',
     sector: 'Restaurante de Mariscos',
     text: '"Lograron retratar la frescura de nuestros mariscos y el ambiente del restaurante con una calidad brutal. El contenido nos ayudó a atraer más clientes y reservas."',
-    image: imgCharco,
     logo: logoElCharco,
     planetColor: 'radial-gradient(circle at 30% 30%, #17BEBB, #0b4f6c)',
     ring: true,
@@ -44,7 +35,6 @@ const testimonialsData = [
     client: 'Madetta',
     sector: 'Interiores & Diseño',
     text: '"Entendieron muy bien la iluminación y los ángulos requeridos para resaltar la calidad de nuestros espacios. Tienen ojo para el diseño y eso se nota en el resultado final."',
-    image: imgMaddeta,
     logo: logoMadetta,
     planetColor: 'radial-gradient(circle at 30% 30%, #E0A96D, #5c3b18)',
     ring: true,
@@ -55,7 +45,6 @@ const testimonialsData = [
     client: 'Café Brune',
     sector: 'Cafetería',
     text: '"La vibra de nuestro café se transmitió perfectamente a través de sus fotografías. Capturaron el aroma y la calidez de cada taza, ¡nos encantó!"',
-    image: imgCafeBrune,
     logo: logoBrune,
     planetColor: 'radial-gradient(circle at 30% 30%, #d4a373, #5e3023)',
     ring: false,
@@ -66,7 +55,6 @@ const testimonialsData = [
     client: 'Pecaminoso',
     sector: 'Restaurante',
     text: '"Nuestros platillos ahora lucen irresistibles en todas las plataformas. Sus videos y fotos han traído a docenas de comensales nuevos antojados, un excelente servicio."',
-    image: imgPecaminoso,
     logo: logoPecaminoso,
     planetColor: 'radial-gradient(circle at 30% 30%, #00b4d8, #0077b6)',
     ring: true,
@@ -77,7 +65,6 @@ const testimonialsData = [
     client: 'Comunidad',
     sector: 'Sesión Fotográfica',
     text: '"Una sesión fotográfica con gran sensibilidad. Supieron capturar los momentos más emotivos y sinceros de nuestra comunidad con muchísimo respeto y calidad."',
-    image: imgComunidad,
     logo: logoComunidad,
     planetColor: 'radial-gradient(circle at 30% 30%, #9d4edd, #3c096c)',
     ring: false,
@@ -89,6 +76,7 @@ const Testimonials = ({ id }) => {
   const titleRef = useScrollReveal({ threshold: 0.1 });
   const sliderRef = useScrollReveal({ threshold: 0.2 });
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const handleNext = () => {
     setActiveIndex((current) => (current + 1) % testimonialsData.length);
@@ -98,13 +86,14 @@ const Testimonials = ({ id }) => {
     setActiveIndex((current) => (current === 0 ? testimonialsData.length - 1 : current - 1));
   };
 
-  // Auto-slide effect
+  // Auto-slide effect con pausa
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setActiveIndex((current) => (current + 1) % testimonialsData.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   return (
     <section id={id} className="osn-testimonials relative py-24 bg-transparent overflow-hidden">
@@ -135,28 +124,34 @@ const Testimonials = ({ id }) => {
 
         <div ref={sliderRef} className="relative max-w-4xl mx-auto" style={{ opacity: 0 }}>
           
-          <div className="relative bg-[rgba(18,18,42,0.6)] backdrop-blur-xl border border-[rgba(255,255,255,0.05)] rounded-3xl p-8 md:p-14 shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden">
+          <div 
+            className="relative bg-[rgba(18,18,42,0.6)] backdrop-blur-xl border border-[rgba(255,255,255,0.05)] rounded-3xl p-8 md:p-14 shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
             
             {/* Comilla Decorativa */}
             <Quote className="absolute top-8 left-8 text-[var(--color-primary)] opacity-20" size={80} />
 
-            {/* Controles de navegación manuales izquierda/derecha */}
+            {/* Controles de navegación manuales izquierda/derecha (Solo visibles en Desktop) */}
             <button 
               onClick={handlePrev}
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 p-2 bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-full text-white hover:bg-[var(--color-primary)] hover:border-transparent transition-all duration-300"
+              className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-full text-white hover:bg-[var(--color-primary)] hover:border-transparent transition-all duration-300"
               aria-label="Anterior testimonio"
             >
               <ChevronLeft size={24} />
             </button>
             <button 
               onClick={handleNext}
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 p-2 bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-full text-white hover:bg-[var(--color-primary)] hover:border-transparent transition-all duration-300"
+              className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-full text-white hover:bg-[var(--color-primary)] hover:border-transparent transition-all duration-300"
               aria-label="Siguiente testimonio"
             >
               <ChevronRight size={24} />
             </button>
 
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 px-6 md:px-12">
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 px-0 md:px-12 pt-8 md:pt-0">
               
               {/* Representación Planeta de la Empresa */}
               <div className="flex flex-col items-center flex-shrink-0">
@@ -174,11 +169,21 @@ const Testimonials = ({ id }) => {
                       />
                     )}
 
-                    {/* Planeta CSS */}
+                    {/* Planeta con Logo */}
                     <div 
-                      className="absolute inset-0 z-10 rounded-full shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.9),_0_0_15px_rgba(255,255,255,0.1)]"
-                      style={{ background: t.planetColor, animation: 'spin 20s linear infinite' }}
-                    />
+                      className="absolute inset-0 z-10 rounded-full flex items-center justify-center p-5 shadow-[inset_-15px_-15px_25px_rgba(0,0,0,0.8),_inset_5px_5px_15px_rgba(255,255,255,0.2),_0_0_20px_rgba(255,255,255,0.05)] overflow-hidden"
+                      style={{ background: t.planetColor }}
+                    >
+                      <img 
+                        src={t.logo} 
+                        alt={`Logo ${t.client}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-contain relative z-20 filter drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]"
+                      />
+                      {/* Sombra interna extra para dar mayor efecto de esfericidad tridimensional */}
+                      <div className="absolute inset-0 rounded-full shadow-[inset_-20px_-20px_50px_rgba(0,0,0,0.7)] pointer-events-none z-30" />
+                    </div>
                     
                     {/* Parte frontal del anillo */}
                     {t.ring && (
@@ -191,28 +196,8 @@ const Testimonials = ({ id }) => {
                         />
                       </div>
                     )}
-
-                    {/* Satélite (Foto pequeña orbitando) */}
-                    <img 
-                      src={t.image} 
-                      alt={t.client}
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute top-0 -right-4 md:top-[10%] md:-right-8 w-16 h-16 md:w-24 md:h-24 rounded-full object-cover border-2 border-[var(--color-bg-base)] shadow-[0_0_15px_rgba(0,0,0,0.8)] z-30"
-                      style={{ animation: 'float 4s ease-in-out infinite' }}
-                    />
                   </div>
                 ))}
-                </div>
-
-                <div className="mt-6 w-36 md:w-44 h-14 bg-[rgba(10,10,26,0.65)] border border-[rgba(255,255,255,0.14)] rounded-xl px-3 flex items-center justify-center shadow-[0_0_18px_rgba(0,0,0,0.35)]">
-                  <img
-                    src={testimonialsData[activeIndex].logo}
-                    alt={`Logo ${testimonialsData[activeIndex].client}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-8 w-auto object-contain"
-                  />
                 </div>
               </div>
 
@@ -242,16 +227,37 @@ const Testimonials = ({ id }) => {
             </div>
           </div>
 
-          {/* Controles y progreso de puntos */}
-          <div className="flex justify-center mt-8 gap-3 flex-wrap">
-            {testimonialsData.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIndex(idx)}
-                className={`h-2 rounded-full transition-all duration-500 ${idx === activeIndex ? 'w-10 bg-[var(--color-primary)] shadow-[0_0_8px_var(--color-primary)]' : 'w-2 bg-[var(--color-text-muted)] opacity-50 hover:opacity-100 hover:scale-150'}`}
-                aria-label={`Ir a transmisión ${idx + 1}`}
-              />
-            ))}
+          {/* Controles móviles y progreso de puntos */}
+          <div className="flex justify-center items-center mt-8 gap-4 flex-wrap">
+            {/* Flecha Izquierda (Solo Móvil) */}
+            <button 
+              onClick={handlePrev}
+              className="md:hidden p-2 bg-[rgba(10,10,26,0.6)] border border-[rgba(255,255,255,0.1)] rounded-full text-white hover:bg-[var(--color-primary)] hover:border-transparent transition-all duration-300"
+              aria-label="Anterior testimonio"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            {/* Puntos / Dots */}
+            <div className="flex gap-3">
+              {testimonialsData.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`h-2 rounded-full transition-all duration-500 ${idx === activeIndex ? 'w-10 bg-[var(--color-primary)] shadow-[0_0_8px_var(--color-primary)]' : 'w-2 bg-[var(--color-text-muted)] opacity-50 hover:opacity-100 hover:scale-150'}`}
+                  aria-label={`Ir a transmisión ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Flecha Derecha (Solo Móvil) */}
+            <button 
+              onClick={handleNext}
+              className="md:hidden p-2 bg-[rgba(10,10,26,0.6)] border border-[rgba(255,255,255,0.1)] rounded-full text-white hover:bg-[var(--color-primary)] hover:border-transparent transition-all duration-300"
+              aria-label="Siguiente testimonio"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
 
         </div>
