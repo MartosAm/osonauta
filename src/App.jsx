@@ -7,7 +7,6 @@ import AboutUs from './components/AboutUs.jsx';
 // Componentes con Lazy Loading (carga diferida para mejorar LCP)
 const Services = lazy(() => import('./components/Services.jsx'));
 const Process = lazy(() => import('./components/Process.jsx'));
-const Portfolio = lazy(() => import('./components/Portfolio.jsx'));
 const Testimonials = lazy(() => import('./components/Testimonials.jsx'));
 const Gallery = lazy(() => import('./components/Gallery.jsx'));
 const SocialMedia = lazy(() => import('./components/SocialMedia.jsx'));
@@ -32,9 +31,8 @@ function App() {
         <Suspense fallback={<LoadingFallback />}>
           <Services id="servicios" />
           <Process id="proceso" />
-          <Portfolio id="portafolio" />
+          <Gallery id="portafolio" />
           <Testimonials id="testimonios" />
-          <Gallery id="galeria" />
           <SocialMedia id="redes" />
           <Contact id="contacto" />
         </Suspense>
