@@ -74,27 +74,27 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`osn-navbar__mobile-menu md:hidden fixed inset-0 bg-[var(--color-bg-base)] flex flex-col items-center justify-center transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`osn-navbar__mobile-menu md:hidden fixed inset-0 bg-[rgba(10,10,26,0.95)] backdrop-blur-xl border-t border-[rgba(0,180,216,0.3)] flex flex-col items-center justify-center transition-all duration-500 ease-out ${
+          isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+        } z-40`}
         aria-hidden={!isMobileMenuOpen}
       >
-        <ul className="flex flex-col items-center gap-8 w-full px-6">
+        <ul className="flex flex-col items-center gap-6 w-full px-6">
           {navLinks.map((link) => (
             <li key={link.name} className="w-full text-center">
               <a
                 href={link.href}
-                className="block text-2xl font-display font-medium text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] transition-colors py-4 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded"
+                className="block text-2xl font-display font-medium text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] hover:bg-[rgba(0,180,216,0.05)] transition-all py-3 px-4 border border-transparent hover:border-[rgba(0,180,216,0.3)] hover:shadow-[0_0_15px_rgba(0,180,216,0.2)] rounded-lg focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none w-full"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
               </a>
             </li>
           ))}
-          <li className="w-full text-center mt-4">
+          <li className="w-full text-center mt-6">
             <a
               href="#contacto"
-              className="block w-full bg-[var(--color-primary)] text-white py-4 rounded-full font-bold text-xl hover:bg-[var(--color-primary-dark)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none"
+              className="block w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] shadow-[0_0_20px_rgba(123,47,190,0.5)] border border-[rgba(224,64,251,0.5)] text-white py-4 rounded-full font-bold text-xl hover:scale-105 transition-transform focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Hablemos

@@ -37,7 +37,19 @@ const Services = ({ id }) => {
   const gridRef = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section id={id} className="osn-services relative py-24 bg-transparent overflow-hidden">
+    <section id={id} className="osn-services relative py-16 md:py-24 bg-transparent overflow-hidden">
+      
+      {/* Estilos locales para HUD scanner */}
+      <style>
+        {`
+          @keyframes hud-scan {
+            0% { top: -10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 110%; opacity: 0; }
+          }
+        `}
+      </style>
       
       {/* Detalles Cósmicos */}
       <div className="mini-star w-1.5 h-1.5 top-[10%] left-[8%]" style={{ animationDelay: '2.5s' }}></div>
@@ -72,7 +84,7 @@ const Services = ({ id }) => {
             return (
               <div 
                 key={index} 
-                className="group relative bg-[rgba(10,10,26,0.5)] backdrop-blur-md border border-[rgba(255,255,255,0.05)] rounded-3xl p-8 md:p-10 transition-all duration-500 overflow-hidden"
+                className="group relative bg-[rgba(10,10,26,0.6)] backdrop-blur-md border border-[rgba(255,255,255,0.1)] rounded-xl p-8 md:p-10 transition-all duration-500 overflow-hidden"
                 style={{
                   '--hover-color': service.color,
                   '--hover-shadow': service.hoverShadow
@@ -94,9 +106,21 @@ const Services = ({ id }) => {
                   style={{ background: `radial-gradient(circle at top right, ${service.color} 0%, transparent 60%)` }}
                 />
 
+                {/* HUD Scan Line y Esquinas */}
+                <div 
+                  className="absolute left-0 w-full h-[2px] opacity-0 group-hover:opacity-100 z-20 pointer-events-none hidden group-hover:block" 
+                  style={{ 
+                    background: `linear-gradient(90deg, transparent, ${service.color}, transparent)`, 
+                    boxShadow: `0 0 15px ${service.color}`,
+                    animation: 'hud-scan 2.5s ease-in-out infinite' 
+                  }}
+                ></div>
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 opacity-30 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: service.color }}></div>
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 opacity-30 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: service.color }}></div>
+
                 <div className="relative z-10 flex flex-col h-full">
                   <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 shadow-lg"
+                    className="w-16 h-16 rounded-xl border border-[rgba(255,255,255,0.1)] flex items-center justify-center mb-6 transition-all duration-500 shadow-lg"
                     style={{ backgroundColor: `color-mix(in srgb, ${service.color} 20%, transparent)` }}
                   >
                     <Icon 

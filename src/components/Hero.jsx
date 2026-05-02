@@ -41,12 +41,12 @@ const Hero = ({ id }) => {
           </div>
           
           <div 
-            className="osn-hero__logo-circle relative w-72 h-72 md:w-96 md:h-96 rounded-full flex items-center justify-center mt-4" 
+            className="osn-hero__logo-circle relative w-[65vw] h-[65vw] max-w-[288px] max-h-[288px] md:max-w-[384px] md:max-h-[384px] md:w-96 md:h-96 rounded-full flex items-center justify-center mt-4" 
             style={{ animation: 'float 4s ease-in-out infinite', transformStyle: 'preserve-3d' }}
           >
              {/* Órbitas 3D envolviendo al planeta morado */}
              {/* Órbita 1 */}
-             <div className="absolute top-1/2 left-1/2 w-[350px] h-[350px] md:w-[450px] md:h-[450px]" style={{ transform: 'translate(-50%, -50%) rotateX(65deg) rotateY(-15deg)', transformStyle: 'preserve-3d' }}>
+             <div className="absolute top-1/2 left-1/2 w-[85vw] h-[85vw] max-w-[350px] max-h-[350px] md:max-w-[450px] md:max-h-[450px] md:w-[450px] md:h-[450px]" style={{ transform: 'translate(-50%, -50%) rotateX(65deg) rotateY(-15deg)', transformStyle: 'preserve-3d' }}>
                <div className="w-full h-full rounded-full border-[2px] border-[rgba(255,255,255,0.15)] animate-[spin_15s_linear_infinite] relative" style={{ transformStyle: 'preserve-3d' }}>
                  {/* Planeta orbitando en la línea */}
                  <div className="absolute top-0 left-1/2 w-6 h-6 bg-gradient-to-br from-[#00f2fe] to-[#4facfe] shadow-[0_0_15px_#00f2fe] rounded-full" style={{ marginTop: '-12px', marginLeft: '-12px', transform: 'rotateX(-65deg)' }} />
@@ -54,7 +54,7 @@ const Hero = ({ id }) => {
              </div>
              
              {/* Órbita 2 */}
-             <div className="absolute top-1/2 left-1/2 w-[450px] h-[450px] md:w-[580px] md:h-[580px]" style={{ transform: 'translate(-50%, -50%) rotateX(75deg) rotateY(25deg)', transformStyle: 'preserve-3d' }}>
+             <div className="absolute top-1/2 left-1/2 w-[100vw] h-[100vw] max-w-[450px] max-h-[450px] md:max-w-[580px] md:max-h-[580px] md:w-[580px] md:h-[580px]" style={{ transform: 'translate(-50%, -50%) rotateX(75deg) rotateY(25deg)', transformStyle: 'preserve-3d' }}>
                <div className="w-full h-full rounded-full border-[1.5px] border-[rgba(255,255,255,0.1)] animate-[spin_25s_linear_reverse_infinite] relative" style={{ transformStyle: 'preserve-3d' }}>
                  {/* Otros planetas orbitando en la línea */}
                  <div className="absolute top-1/2 left-0 w-8 h-8 bg-gradient-to-br from-[#FF416C] to-[#FF4B2B] shadow-[0_0_20px_#FF416C] rounded-full" style={{ marginTop: '-16px', marginLeft: '-16px', transform: 'rotateX(-75deg)' }} />
@@ -83,7 +83,7 @@ const Hero = ({ id }) => {
                src={logoOsonauta} 
                alt="Logo Osonauta - Oso Astronauta" 
                fetchPriority="high"
-               className="w-60 h-60 md:w-80 md:h-80 object-contain relative z-10 drop-shadow-[0_25px_25px_rgba(0,0,0,0.8)]" 
+               className="w-[55vw] h-[55vw] max-w-[240px] max-h-[240px] md:max-w-[320px] md:max-h-[320px] md:w-80 md:h-80 object-contain relative z-10 drop-shadow-[0_25px_25px_rgba(0,0,0,0.8)]" 
                style={{ transform: 'translateZ(40px)' }}
              />
           </div>

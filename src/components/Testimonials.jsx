@@ -18,7 +18,8 @@ const testimonialsData = [
     logo: logoDidaSori,
     planetColor: 'radial-gradient(circle at 30% 30%, #ff6b35, #8b2500)',
     ring: true,
-    ringColor: 'rgba(255,107,53,0.4)'
+    ringColor: 'rgba(255,107,53,0.4)',
+    styleMode: 'integrated-texture'
   },
   {
     id: 2,
@@ -28,7 +29,8 @@ const testimonialsData = [
     logo: logoElCharco,
     planetColor: 'radial-gradient(circle at 30% 30%, #17BEBB, #0b4f6c)',
     ring: true,
-    ringColor: 'rgba(23,190,187,0.35)'
+    ringColor: 'rgba(23,190,187,0.35)',
+    styleMode: 'original'
   },
   {
     id: 3,
@@ -38,7 +40,8 @@ const testimonialsData = [
     logo: logoMadetta,
     planetColor: 'radial-gradient(circle at 30% 30%, #E0A96D, #5c3b18)',
     ring: true,
-    ringColor: 'rgba(224,169,109,0.3)'
+    ringColor: 'rgba(224,169,109,0.3)',
+    styleMode: 'integrated-texture'
   },
   {
     id: 4,
@@ -48,7 +51,8 @@ const testimonialsData = [
     logo: logoBrune,
     planetColor: 'radial-gradient(circle at 30% 30%, #d4a373, #5e3023)',
     ring: false,
-    ringColor: 'transparent'
+    ringColor: 'transparent',
+    styleMode: 'integrated-texture'
   },
   {
     id: 5,
@@ -58,7 +62,8 @@ const testimonialsData = [
     logo: logoPecaminoso,
     planetColor: 'radial-gradient(circle at 30% 30%, #00b4d8, #0077b6)',
     ring: true,
-    ringColor: 'rgba(0,180,216,0.4)'
+    ringColor: 'rgba(0,180,216,0.4)',
+    styleMode: 'integrated-color'
   },
   {
     id: 6,
@@ -68,7 +73,8 @@ const testimonialsData = [
     logo: logoComunidad,
     planetColor: 'radial-gradient(circle at 30% 30%, #9d4edd, #3c096c)',
     ring: false,
-    ringColor: 'transparent'
+    ringColor: 'transparent',
+    styleMode: 'original'
   }
 ];
 
@@ -169,21 +175,40 @@ const Testimonials = ({ id }) => {
                       />
                     )}
 
-                    {/* Planeta con Logo */}
-                    <div 
-                      className="absolute inset-0 z-10 rounded-full flex items-center justify-center p-5 shadow-[inset_-15px_-15px_25px_rgba(0,0,0,0.8),_inset_5px_5px_15px_rgba(255,255,255,0.2),_0_0_20px_rgba(255,255,255,0.05)] overflow-hidden"
-                      style={{ background: t.planetColor }}
-                    >
-                      <img 
-                        src={t.logo} 
-                        alt={`Logo ${t.client}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-contain relative z-20 filter drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]"
-                      />
-                      {/* Sombra interna extra para dar mayor efecto de esfericidad tridimensional */}
-                      <div className="absolute inset-0 rounded-full shadow-[inset_-20px_-20px_50px_rgba(0,0,0,0.7)] pointer-events-none z-30" />
-                    </div>
+                    {/* Renderizado de Planeta según Modo */}
+                    {t.styleMode === 'original' ? (
+                      <div 
+                        className="absolute inset-0 z-10 rounded-full flex items-center justify-center p-5 shadow-[inset_-15px_-15px_25px_rgba(0,0,0,0.8),_inset_5px_5px_15px_rgba(255,255,255,0.2),_0_0_20px_rgba(255,255,255,0.05)] overflow-hidden"
+                        style={{ background: t.planetColor }}
+                      >
+                        <img 
+                          src={t.logo} 
+                          alt={`Logo ${t.client}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-contain relative z-20 filter drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]"
+                        />
+                        <div className="absolute inset-0 rounded-full shadow-[inset_-20px_-20px_50px_rgba(0,0,0,0.7)] pointer-events-none z-30" />
+                      </div>
+                    ) : (
+                      <div 
+                        className="absolute inset-0 z-10 rounded-full flex items-center justify-center shadow-[inset_-25px_-25px_40px_rgba(0,0,0,0.9),_inset_8px_8px_20px_rgba(255,255,255,0.4)] overflow-hidden"
+                        style={{ background: t.planetColor }}
+                      >
+                        <img 
+                          src={t.logo} 
+                          alt={`Logo ${t.client}`}
+                          loading="lazy"
+                          decoding="async"
+                          className={`w-[110%] h-[110%] object-cover relative z-20 ${t.styleMode === 'integrated-texture' ? 'mix-blend-luminosity opacity-80' : 'opacity-90'}`}
+                          style={{
+                            WebkitMaskImage: 'radial-gradient(circle at center, black 50%, transparent 95%)',
+                            maskImage: 'radial-gradient(circle at center, black 50%, transparent 95%)'
+                          }}
+                        />
+                        <div className="absolute inset-0 rounded-full shadow-[inset_-30px_-30px_60px_rgba(0,0,0,0.8)] pointer-events-none z-30" />
+                      </div>
+                    )}
                     
                     {/* Parte frontal del anillo */}
                     {t.ring && (

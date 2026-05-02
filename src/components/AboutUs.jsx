@@ -7,7 +7,7 @@ const AboutUs = ({ id }) => {
   const cardsRef = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section id={id} className="osn-about relative py-24 bg-transparent overflow-hidden">
+    <section id={id} className="osn-about relative py-16 md:py-24 bg-transparent overflow-hidden">
 
       {/* Detalles Cósmicos */}
       <div className="mini-star w-2 h-2 top-[30%] left-[5%]" style={{ animationDelay: '0.5s' }}></div>
@@ -89,28 +89,40 @@ const AboutUs = ({ id }) => {
            </p>
         </div>
 
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{ opacity: 0 }}>
-          <div className="osn-card group bg-[rgba(10,10,26,0.5)] backdrop-blur-sm border border-[rgba(123,47,190,0.2)] rounded-2xl p-8 text-center transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_25px_rgba(123,47,190,0.4)] hover:-translate-y-2">
-            <div className="w-16 h-16 mx-auto bg-[rgba(123,47,190,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-primary)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(123,47,190,0.5)]">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8" style={{ opacity: 0 }}>
+          <div className="osn-card relative group bg-[rgba(10,10,26,0.6)] backdrop-blur-md border border-[rgba(123,47,190,0.3)] rounded-xl p-8 text-center transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_30px_rgba(123,47,190,0.5),inset_0_0_15px_rgba(123,47,190,0.2)] hover:-translate-y-2 overflow-hidden">
+            {/* HUD Corner Decorators */}
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--color-primary)] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--color-primary)] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            
+            <div className="w-16 h-16 mx-auto bg-[rgba(123,47,190,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-primary)] group-hover:shadow-[0_0_20px_var(--color-primary)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(123,47,190,0.5)]">
               <GraduationCap className="text-[var(--color-primary)] group-hover:text-white transition-colors" size={32} />
             </div>
-            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3">Equipo Profesional</h3>
+            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-highlight)] transition-colors">Equipo Profesional</h3>
             <p className="text-small text-[var(--color-text-muted)] leading-relaxed">Formación académica y experiencia real probada en la industria visual.</p>
           </div>
 
-          <div className="osn-card group bg-[rgba(10,10,26,0.5)] backdrop-blur-sm border border-[rgba(0,180,216,0.2)] rounded-2xl p-8 text-center transition-all duration-300 hover:border-[var(--color-secondary)] hover:shadow-[0_0_25px_rgba(0,180,216,0.4)] hover:-translate-y-2">
-            <div className="w-16 h-16 mx-auto bg-[rgba(0,180,216,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-secondary)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(0,180,216,0.5)]">
+          <div className="osn-card relative group bg-[rgba(10,10,26,0.6)] backdrop-blur-md border border-[rgba(0,180,216,0.3)] rounded-xl p-8 text-center transition-all duration-300 hover:border-[var(--color-secondary)] hover:shadow-[0_0_30px_rgba(0,180,216,0.5),inset_0_0_15px_rgba(0,180,216,0.2)] hover:-translate-y-2 overflow-hidden">
+            {/* HUD Corner Decorators */}
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--color-secondary)] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--color-secondary)] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+
+            <div className="w-16 h-16 mx-auto bg-[rgba(0,180,216,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-secondary)] group-hover:shadow-[0_0_20px_var(--color-secondary)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(0,180,216,0.5)]">
               <MapPin className="text-[var(--color-secondary)] group-hover:text-white transition-colors" size={32} />
             </div>
-            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3">A tu ubicación</h3>
+            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[#00f2fe] transition-colors">A tu ubicación</h3>
             <p className="text-small text-[var(--color-text-muted)] leading-relaxed">Llegamos hasta tu restaurante, tu local comercial o tu espacio de trabajo.</p>
           </div>
 
-          <div className="osn-card group bg-[rgba(10,10,26,0.5)] backdrop-blur-sm border border-[rgba(255,107,53,0.2)] rounded-2xl p-8 text-center transition-all duration-300 hover:border-[var(--color-accent)] hover:shadow-[0_0_25px_rgba(255,107,53,0.4)] hover:-translate-y-2">
-            <div className="w-16 h-16 mx-auto bg-[rgba(255,107,53,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-accent)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(255,107,53,0.5)]">
+          <div className="osn-card relative group bg-[rgba(10,10,26,0.6)] backdrop-blur-md border border-[rgba(255,107,53,0.3)] rounded-xl p-8 text-center transition-all duration-300 hover:border-[var(--color-accent)] hover:shadow-[0_0_30px_rgba(255,107,53,0.5),inset_0_0_15px_rgba(255,107,53,0.2)] hover:-translate-y-2 overflow-hidden">
+            {/* HUD Corner Decorators */}
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--color-accent)] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--color-accent)] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+
+            <div className="w-16 h-16 mx-auto bg-[rgba(255,107,53,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-accent)] group-hover:shadow-[0_0_20px_var(--color-accent)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(255,107,53,0.5)]">
               <Target className="text-[var(--color-accent)] group-hover:text-white transition-colors" size={32} />
             </div>
-            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3">Calidad que vende</h3>
+            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[#FF4B2B] transition-colors">Calidad que vende</h3>
             <p className="text-small text-[var(--color-text-muted)] leading-relaxed">Cada proyecto es una misión estratégica. Cada imagen, un resultado medible.</p>
           </div>
         </div>

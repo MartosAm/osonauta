@@ -24,7 +24,7 @@ const Contact = ({ id }) => {
   const infoRef = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section id={id} className="osn-contact relative py-32 bg-transparent overflow-hidden">
+    <section id={id} className="osn-contact relative py-20 md:py-32 bg-transparent overflow-hidden">
       
       {/* Fondo: Nebulosa Oscura y Satélite animado */}
       <div 
@@ -151,7 +151,7 @@ const Contact = ({ id }) => {
                     <label className="text-xs uppercase tracking-widest text-[var(--color-text-muted)]">Nombre del Piloto</label>
                     <input 
                       type="text" 
-                      className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-secondary)] focus:ring-1 focus:ring-[var(--color-secondary)] transition-all"
+                      className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-secondary)] focus:shadow-[0_0_15px_rgba(0,180,216,0.4)] transition-all"
                       placeholder="Ej. Comandante Ripley"
                     />
                   </div>
@@ -159,7 +159,7 @@ const Contact = ({ id }) => {
                     <label className="text-xs uppercase tracking-widest text-[var(--color-text-muted)]">Frecuencia (Email)</label>
                     <input 
                       type="email" 
-                      className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-secondary)] focus:ring-1 focus:ring-[var(--color-secondary)] transition-all"
+                      className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-secondary)] focus:shadow-[0_0_15px_rgba(0,180,216,0.4)] transition-all"
                       placeholder="correo@nave.com"
                     />
                   </div>
@@ -169,7 +169,7 @@ const Contact = ({ id }) => {
                   <label className="text-xs uppercase tracking-widest text-[var(--color-text-muted)]">Asunto de la Misión</label>
                   <input 
                     type="text" 
-                    className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-all"
+                    className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-primary)] focus:shadow-[0_0_15px_rgba(123,47,190,0.4)] transition-all"
                     placeholder="Ej. Sesión de fotos para mi base"
                   />
                 </div>
@@ -178,14 +178,14 @@ const Contact = ({ id }) => {
                   <label className="text-xs uppercase tracking-widest text-[var(--color-text-muted)]">Mensaje</label>
                   <textarea 
                     rows="4"
-                    className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-all resize-none"
+                    className="w-full bg-[rgba(10,10,26,0.8)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--color-primary)] focus:shadow-[0_0_15px_rgba(123,47,190,0.4)] transition-all resize-none"
                     placeholder="Describe los detalles de la misión..."
                   />
                 </div>
 
                 <button 
                   type="button" 
-                  className="w-full md:w-auto bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-display uppercase tracking-widest px-8 py-4 rounded-xl transition-colors duration-300 shadow-[0_0_20px_rgba(123,47,190,0.4)] hover:shadow-[0_0_30px_rgba(123,47,190,0.6)]"
+                  className="w-full md:w-auto bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white font-display uppercase tracking-widest px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(123,47,190,0.6)] hover:shadow-[0_0_40px_rgba(123,47,190,0.8)] border border-[rgba(224,64,251,0.5)] hover:scale-105"
                 >
                   Iniciar Lanzamiento
                 </button>

@@ -44,7 +44,16 @@ const Process = ({ id }) => {
   const timelineRef = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section id={id} className="osn-process relative py-24 bg-transparent overflow-hidden">
+    <section id={id} className="osn-process relative py-16 md:py-24 bg-transparent overflow-hidden">
+      <style>
+        {`
+          @keyframes energy-flow {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(800px); opacity: 0; }
+          }
+        `}
+      </style>
 
       {/* Detalles Cósmicos */}
       <div className="mini-star w-2 h-2 top-[20%] right-[8%]" style={{ animationDelay: '1s' }}></div>
@@ -83,9 +92,19 @@ const Process = ({ id }) => {
           
           {/* Línea Central (Desktop) / Línea Lateral (Mobile) */}
           <div 
-            className="absolute left-[30px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[var(--color-primary)] via-[var(--color-secondary)] to-transparent opacity-30 shadow-[0_0_10px_rgba(0,180,216,0.5)] md:-translate-x-1/2"
+            className="absolute left-[30px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[rgba(255,255,255,0.05)] md:-translate-x-1/2 overflow-hidden"
             aria-hidden="true"
-          />
+          >
+            {/* Rayo de energía brillante */}
+            <div 
+              className="absolute top-0 left-0 w-full h-[150px]"
+              style={{
+                background: 'linear-gradient(to bottom, transparent, var(--color-secondary), transparent)',
+                boxShadow: '0 0 20px var(--color-secondary)',
+                animation: 'energy-flow 4s ease-in-out infinite'
+              }}
+            />
+          </div>
 
           <div className="space-y-16 relative">
             {processSteps.map((item, index) => {
