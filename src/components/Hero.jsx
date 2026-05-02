@@ -171,16 +171,6 @@ const Hero = ({ id }) => {
         </div>
       </div>
 
-      <div 
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity"
-        style={{ 
-           opacity: 0, 
-           animation: mounted ? 'fadeSlideUp 0.8s ease-out 0.8s forwards' : 'none' 
-        }}
-      >
-         <span className="text-[var(--color-text-muted)] text-[0.75rem] font-display uppercase tracking-[0.2em]">Descubre</span>
-         <div className="w-[2px] h-12 bg-gradient-to-b from-[var(--color-primary)] to-transparent rounded-full"></div>
-      </div>
     </section>
   );
 };
