@@ -1,0 +1,15 @@
+/* App.css - Utilidades globales adicionales (limpiado de Vite) */
+
+/* Contenedor principal para evitar desbordamiento horizontal (muy importante en mobile con elementos 3D o absolutos) */
+.osn-app-container {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-content {
+  flex-grow: 1;
+}
