@@ -117,17 +117,17 @@ const Gallery = ({ id }) => {
         {/* Cabecera */}
         <div ref={headerRef} className="text-center mb-20" style={{ opacity: 0 }}>
           <Sparkles className="text-[var(--color-accent)] mx-auto mb-4 drop-shadow-[0_0_15px_rgba(255,107,53,0.8)]" size={40} style={{ animation: 'twinkle 2s infinite' }}/>
-          <h2 className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-md">
+          <h2 data-i18n="gallery.title" className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-md">
             Galeria por Negocio
           </h2>
           <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto rounded-full shadow-[0_0_10px_rgba(255,107,53,0.8)] mb-6" />
-          <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+          <p data-i18n="gallery.subtitle" className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
             Navega por carpetas reales de cada marca y revisa su material visual en una vista clara, tematica y optimizada para movil.
           </p>
         </div>
 
         <div ref={filtersRef} className="mb-10" style={{ opacity: 0 }}>
-          <h3 className="text-h3 font-display text-white border-l-4 border-[var(--color-primary)] pl-4 mb-6">
+          <h3 data-i18n="gallery.selectLabel" className="text-h3 font-display text-white border-l-4 border-[var(--color-primary)] pl-4 mb-6">
             Selecciona una marca
           </h3>
 
@@ -165,7 +165,8 @@ const Gallery = ({ id }) => {
                   {activeBusinessData.name}
                 </h3>
                 <span className="text-small text-[var(--color-text-muted)]">
-                  {activeBusinessData.images.length} imagenes
+                  <span className="mr-1">{activeBusinessData.images.length}</span>
+                  <span data-i18n="gallery.imagesLabel">imagenes</span>
                 </span>
               </div>
 
@@ -185,7 +186,7 @@ const Gallery = ({ id }) => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.45)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="absolute bottom-2 left-2 text-[10px] md:text-xs text-white/90 font-body px-2 py-1 rounded-md bg-[rgba(10,10,26,0.55)] border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span data-i18n="gallery.view" className="absolute bottom-2 left-2 text-[10px] md:text-xs text-white/90 font-body px-2 py-1 rounded-md bg-[rgba(10,10,26,0.55)] border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       Ver
                     </span>
                   </button>
@@ -195,7 +196,7 @@ const Gallery = ({ id }) => {
           ) : (
             <div className="border border-[rgba(255,255,255,0.12)] rounded-2xl p-8 text-center bg-[rgba(10,10,26,0.55)]">
               <ImageIcon className="mx-auto mb-3 text-[var(--color-secondary)]" size={30} />
-              <p className="text-body text-[var(--color-text-muted)]">
+              <p data-i18n="gallery.empty" className="text-body text-[var(--color-text-muted)]">
                 No hay imagenes disponibles en esta seccion todavia.
               </p>
             </div>
@@ -213,6 +214,7 @@ const Gallery = ({ id }) => {
               type="button"
               className="absolute top-4 right-4 w-10 h-10 rounded-full border border-white/30 text-white hover:bg-white/10 transition-colors"
               onClick={() => setSelectedImage(null)}
+              data-i18n-attr="aria-label:gallery.close"
               aria-label="Cerrar imagen"
             >
               <X size={18} className="mx-auto" />

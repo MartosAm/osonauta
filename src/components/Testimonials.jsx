@@ -37,11 +37,11 @@ const Testimonials = ({ id }) => {
         {/* Cabecera */}
         <div ref={titleRef} className="text-center mb-16" style={{ opacity: 0 }}>
           <Radar className="text-[var(--color-secondary)] mx-auto mb-4 drop-shadow-[0_0_15px_rgba(0,180,216,0.8)]" size={40} style={{ animation: 'pulse 2s infinite' }} />
-          <h2 className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+          <h2 data-i18n="testimonials.title" className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
             Radar de Aliados
           </h2>
           <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto rounded-full shadow-[0_0_10px_rgba(123,47,190,0.8)] mb-6" />
-          <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+          <p data-i18n="testimonials.subtitle" className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
             Detectando señales de las marcas que viajan con nosotros. Órbitas locales con alcance estelar.
           </p>
         </div>

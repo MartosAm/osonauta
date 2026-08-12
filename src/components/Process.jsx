@@ -77,12 +77,12 @@ const Process = ({ id }) => {
         <div ref={titleRef} className="text-center mb-20" style={{ opacity: 0 }}>
           <div className="flex items-center justify-center gap-3 mb-4">
             <Compass className="text-[var(--color-secondary)]" size={32} style={{ animation: 'float 4s ease-in-out infinite' }} />
-            <h2 className="text-h1 font-display text-white drop-shadow-md">
+            <h2 data-i18n="process.title" className="text-h1 font-display text-white drop-shadow-md">
               Plan de Misión
             </h2>
           </div>
-          <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto mb-6">
-            Una ruta clara y probada estructurada en cuatro fases, diseñada para llevar tu proyecto desde la idea al espacio digital.
+          <p data-i18n="process.lead" className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto mb-6">
+            Una ruta clara y comprobada estructurada en cuatro fases, diseñada para llevar tu proyecto desde la idea al espacio digital.
           </p>
           <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto rounded-full shadow-[0_0_10px_rgba(123,47,190,0.8)]" />
         </div>
@@ -151,8 +151,8 @@ const Process = ({ id }) => {
                        <div className={`w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.03)] flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-[#1a1a3a] ${isLeft ? 'md:ml-auto' : 'md:mr-auto'}`}>
                          <Icon size={24} color={item.color} className="group-hover:scale-110 transition-transform" />
                        </div>
-                       <h3 className="text-h4 font-display text-white mb-2">{item.title}</h3>
-                       <p className="text-body text-[var(--color-text-muted)] leading-relaxed group-hover:text-white transition-colors">
+                       <h3 data-i18n={`process.${item.step}.title`} className="text-h4 font-display text-white mb-2">{item.title}</h3>
+                       <p data-i18n={`process.${item.step}.desc`} className="text-body text-[var(--color-text-muted)] leading-relaxed group-hover:text-white transition-colors">
                          {item.description}
                        </p>
 

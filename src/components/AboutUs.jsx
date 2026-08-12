@@ -70,7 +70,7 @@ const AboutUs = ({ id }) => {
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div ref={titleRef} className="osn-section-title text-center mb-16" style={{ opacity: 0 }}>
-          <h2 className="text-h1 font-display text-[var(--color-text-primary)] mb-4 drop-shadow-md text-shadow-[0_0_15px_rgba(123,47,190,0.5)]">
+          <h2 data-i18n="about.title" className="text-h1 font-display text-[var(--color-text-primary)] mb-4 drop-shadow-md text-shadow-[0_0_15px_rgba(123,47,190,0.5)]">
             Conoce la Cueva
           </h2>
           <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto rounded-full shadow-[0_0_10px_rgba(123,47,190,0.8)]" />
@@ -84,7 +84,7 @@ const AboutUs = ({ id }) => {
            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-secondary)] to-transparent opacity-80" />
            <p className="text-body-lg font-body text-[var(--color-text-primary)] leading-relaxed">
              <span className="text-3xl text-[var(--color-secondary)] font-serif block mb-2 opacity-50">&ldquo;</span>
-             Somos <strong className="text-[var(--color-highlight)] font-semibold drop-shadow-[0_0_5px_rgba(255,107,53,0.5)]">Osonauta</strong>, una agencia con todo el poder. Desde enero nos lanzamos al universo creativo con un equipo de 4 profesionales apasionados, con formación académica y experiencia real en la industria. Llegamos hasta donde estés &mdash; tu restaurante, tu local, tu espacio &mdash; con equipo profesional y una visión clara: <strong className="text-white font-semibold drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">hacer que tu producto despegue</strong>. Cada proyecto es una misión. Cada imagen, un resultado.
+             <span data-i18n="about.lead1">Somos</span> <strong className="text-[var(--color-highlight)] font-semibold drop-shadow-[0_0_5px_rgba(255,107,53,0.5)]">Osonauta</strong>, <span data-i18n="about.lead2">una agencia con todo el poder. Desde enero nos lanzamos al universo creativo con un equipo de 4 profesionales apasionados, con formación académica y experiencia real en la industria. Llegamos hasta donde estés — tu restaurante, tu local, tu espacio — con equipo profesional y una visión clara:</span> <strong data-i18n="about.emph" className="text-white font-semibold drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">hacer que tu producto despegue</strong>. <span data-i18n="about.lead3">Cada proyecto es una misión. Cada imagen, un resultado.</span>
              <span className="text-3xl text-[var(--color-secondary)] font-serif block mt-2 opacity-50">&rdquo;</span>
            </p>
         </div>
@@ -98,8 +98,8 @@ const AboutUs = ({ id }) => {
             <div className="w-16 h-16 mx-auto bg-[rgba(123,47,190,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-primary)] group-hover:shadow-[0_0_20px_var(--color-primary)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(123,47,190,0.5)]">
               <GraduationCap className="text-[var(--color-primary)] group-hover:text-white transition-colors" size={32} />
             </div>
-            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-highlight)] transition-colors">Equipo Profesional</h3>
-            <p className="text-small text-[var(--color-text-muted)] leading-relaxed">Formación académica y experiencia real probada en la industria visual.</p>
+            <h3 data-i18n="about.card.0.title" className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-highlight)] transition-colors">Equipo Profesional</h3>
+            <p data-i18n="about.card.0.desc" className="text-small text-[var(--color-text-muted)] leading-relaxed">Formación académica y experiencia real probada en la industria visual.</p>
           </div>
 
           <div className="osn-card relative group bg-[rgba(10,10,26,0.6)] backdrop-blur-md border border-[rgba(0,180,216,0.3)] rounded-xl p-8 text-center transition-all duration-300 hover:border-[var(--color-secondary)] hover:shadow-[0_0_30px_rgba(0,180,216,0.5),inset_0_0_15px_rgba(0,180,216,0.2)] hover:-translate-y-2 overflow-hidden">
@@ -110,8 +110,8 @@ const AboutUs = ({ id }) => {
             <div className="w-16 h-16 mx-auto bg-[rgba(0,180,216,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-secondary)] group-hover:shadow-[0_0_20px_var(--color-secondary)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(0,180,216,0.5)]">
               <MapPin className="text-[var(--color-secondary)] group-hover:text-white transition-colors" size={32} />
             </div>
-            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[#00f2fe] transition-colors">A tu ubicación</h3>
-            <p className="text-small text-[var(--color-text-muted)] leading-relaxed">Llegamos hasta tu restaurante, tu local comercial o tu espacio de trabajo.</p>
+            <h3 data-i18n="about.card.1.title" className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[#00f2fe] transition-colors">A tu ubicación</h3>
+            <p data-i18n="about.card.1.desc" className="text-small text-[var(--color-text-muted)] leading-relaxed">Llegamos hasta tu restaurante, tu local comercial o tu espacio de trabajo.</p>
           </div>
 
           <div className="osn-card relative group bg-[rgba(10,10,26,0.6)] backdrop-blur-md border border-[rgba(255,107,53,0.3)] rounded-xl p-8 text-center transition-all duration-300 hover:border-[var(--color-accent)] hover:shadow-[0_0_30px_rgba(255,107,53,0.5),inset_0_0_15px_rgba(255,107,53,0.2)] hover:-translate-y-2 overflow-hidden">
@@ -122,8 +122,8 @@ const AboutUs = ({ id }) => {
             <div className="w-16 h-16 mx-auto bg-[rgba(255,107,53,0.15)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--color-accent)] group-hover:shadow-[0_0_20px_var(--color-accent)] transition-all duration-300 shadow-[0_0_10px_inset_rgba(255,107,53,0.5)]">
               <Target className="text-[var(--color-accent)] group-hover:text-white transition-colors" size={32} />
             </div>
-            <h3 className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[#FF4B2B] transition-colors">Calidad que vende</h3>
-            <p className="text-small text-[var(--color-text-muted)] leading-relaxed">Cada proyecto es una misión estratégica. Cada imagen, un resultado medible.</p>
+            <h3 data-i18n="about.card.2.title" className="text-h3 font-display text-[var(--color-text-primary)] mb-3 group-hover:text-[#FF4B2B] transition-colors">Calidad que vende</h3>
+            <p data-i18n="about.card.2.desc" className="text-small text-[var(--color-text-muted)] leading-relaxed">Cada proyecto es una misión estratégica. Cada imagen, un resultado medible.</p>
           </div>
         </div>
 

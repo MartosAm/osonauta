@@ -14,11 +14,11 @@ const Location = ({ id }) => {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         <div className="text-center mb-16">
-          <h2 className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+          <h2 data-i18n="location.title" className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
             Sector Espacial
           </h2>
           <div className="w-16 h-1 bg-[var(--color-accent)] mx-auto rounded-full shadow-[0_0_10px_rgba(255,107,53,0.8)] mb-6" />
-          <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+          <p data-i18n="location.description" className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
             Rastrea nuestras coordenadas exactas. Visita nuestra cueva creativa y despeguemos juntos.
           </p>
         </div>
@@ -46,6 +46,7 @@ const Location = ({ id }) => {
                 allowFullScreen="" 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
+                data-i18n="location.iframeTitle"
                 title="Mapa de Ubicación Osonauta"
               ></iframe>
             </div>

@@ -65,11 +65,11 @@ const Contact = ({ id }) => {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         <div className="text-center mb-16">
-          <h2 className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+          <h2 data-i18n="contact.title" className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
             Centro de Mando
           </h2>
           <div className="w-16 h-1 bg-[var(--color-secondary)] mx-auto rounded-full shadow-[0_0_10px_rgba(0,180,216,0.8)] mb-6" />
-          <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+          <p data-i18n="contact.subtitle" className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
             ¿Listo para iniciar tu misión? Establece contacto con la base Osonauta y preparemos el lanzamiento.
           </p>
         </div>
@@ -79,7 +79,7 @@ const Contact = ({ id }) => {
           {/* INFO Y REDES */}
           <div ref={infoRef} className="lg:col-span-4 flex flex-col gap-8" style={{ opacity: 0 }}>
             <div className="bg-[rgba(10,10,26,0.8)] backdrop-blur-xl border border-[rgba(255,255,255,0.05)] rounded-3xl p-8 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <h3 className="text-h4 font-display text-white mb-6 border-b border-[rgba(255,255,255,0.1)] pb-4">Coordenadas</h3>
+              <h3 data-i18n="contact.coordsTitle" className="text-h4 font-display text-white mb-6 border-b border-[rgba(255,255,255,0.1)] pb-4">Coordenadas</h3>
               
               <ul className="space-y-6">
                 <li className="flex items-start gap-4 group">
@@ -87,7 +87,7 @@ const Contact = ({ id }) => {
                     <Mail size={20} />
                   </div>
                   <div>
-                    <span className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Transmisión</span>
+                    <span data-i18n="contact.coords.transmission" className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Transmisión</span>
                     <a href="mailto:osonauta.marketing@gmail.com" className="text-white hover:text-[var(--color-primary)] transition-colors text-sm break-all">Osonauta.marketing@gmail.com</a>
                   </div>
                 </li>
@@ -97,7 +97,7 @@ const Contact = ({ id }) => {
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <span className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Base Espacial</span>
+                    <span data-i18n="contact.coords.base" className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Base Espacial</span>
                     <p className="text-white text-sm">Negrete 807 zona centro, Durango, México, 34000</p>
                   </div>
                 </li>
@@ -107,8 +107,8 @@ const Contact = ({ id }) => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <span className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Frecuencia</span>
-                    <a href="tel:+526182663567" className="text-white hover:text-[var(--color-accent)] transition-colors text-sm">618 266 3567</a>
+                    <span data-i18n="contact.coords.frequency" className="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-1">Frecuencia</span>
+                    <a href="tel:+526182663567" className="text-white hover:text-[var(--color-accent)] transition-colors text-sm">+52 618 266 3567</a>
                   </div>
                 </li>
               </ul>
@@ -116,7 +116,7 @@ const Contact = ({ id }) => {
 
             {/* Redes Sociales Integradas */}
             <div className="bg-[rgba(10,10,26,0.8)] backdrop-blur-xl border border-[rgba(255,255,255,0.05)] rounded-3xl p-8 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <h3 className="text-h4 font-display text-white mb-6 flex items-center gap-2">
+              <h3 data-i18n="contact.social.title" className="text-h4 font-display text-white mb-6 flex items-center gap-2">
                 <Share2 size={20} className="text-[var(--color-secondary)]" /> Redes Aliadas
               </h3>
               <div className="flex gap-4">
@@ -147,8 +147,8 @@ const Contact = ({ id }) => {
                 <WhatsAppIcon className="w-12 h-12 text-[#25D366]" />
               </div>
 
-              <h3 className="text-h2 font-display text-white mb-6">Transmisión Directa</h3>
-              <p className="text-body-lg text-[var(--color-text-muted)] mb-12 max-w-md">
+              <h3 data-i18n="contact.title" className="text-h2 font-display text-white mb-6">Transmisión Directa</h3>
+              <p data-i18n="contact.direct.subtitle" className="text-body-lg text-[var(--color-text-muted)] mb-12 max-w-md">
                 Evita las esperas. Conecta directamente con la base a través de nuestro canal seguro de WhatsApp.
               </p>
               
@@ -157,6 +157,7 @@ const Contact = ({ id }) => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full md:w-auto bg-gradient-to-r from-[#25D366] to-[#1DA851] text-white font-display uppercase tracking-widest px-12 py-5 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(37,211,102,0.6)] hover:shadow-[0_0_40px_rgba(37,211,102,0.8)] border border-[#25D366]/50 hover:scale-105 flex items-center justify-center gap-4"
+                data-i18n="contact.cta"
               >
                 <div className="w-6 h-6 flex items-center justify-center"><WhatsAppIcon /></div>
                 Enviar Mensaje

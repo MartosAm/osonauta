@@ -75,11 +75,11 @@ const SocialMedia = ({ id }) => {
 
       {/* Título de la sección */}
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-20">
-        <h2 className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+        <h2 data-i18n="social.title" className="text-h2 md:text-h1 font-display text-white mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
           Red de Satélites
         </h2>
         <div className="w-16 h-1 bg-[var(--color-accent)] mx-auto rounded-full shadow-[0_0_10px_var(--color-accent)] mb-6" />
-        <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+        <p data-i18n="social.subtitle" className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
           Intercepta nuestras transmisiones diarias. Explora los feeds estelares desde nuestra estación en redes sociales.
         </p>
       </div>
@@ -95,7 +95,7 @@ const SocialMedia = ({ id }) => {
         {/* Botón Central Flotante */}
         <div className="mt-20 flex justify-center">
           <a href="https://www.youtube.com/channel/UCVyxQMtcMyZE2dcbhWIvsCg" target="_blank" rel="noopener noreferrer" className="relative inline-flex items-center gap-4 px-10 py-5 bg-transparent border border-[var(--color-secondary)] rounded-full text-white font-display uppercase tracking-widest hover:bg-[var(--color-secondary)]/10 transition-all duration-300 group overflow-hidden">
-            <span className="relative z-10">Ver más en YouTube</span>
+            <span data-i18n="social.btn.more" className="relative z-10">Ver más en YouTube</span>
             <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)] shadow-[0_0_10px_var(--color-secondary)] group-hover:scale-[3] transition-transform duration-500 relative z-10" />
             
             {/* Destello de fondo hover */}

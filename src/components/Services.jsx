@@ -69,10 +69,10 @@ const Services = ({ id }) => {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         <div ref={titleRef} className="osn-section-title text-center mb-16" style={{ opacity: 0 }}>
-          <h2 className="text-h1 font-display text-[var(--color-text-primary)] mb-4 drop-shadow-md text-shadow-[0_0_15px_rgba(0,180,216,0.5)]">
+          <h2 data-i18n="services.title" className="text-h1 font-display text-[var(--color-text-primary)] mb-4 drop-shadow-md text-shadow-[0_0_15px_rgba(0,180,216,0.5)]">
             Nuestra Órbita de Servicios
           </h2>
-          <p className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto mb-6">
+          <p data-i18n="services.subtitle" className="text-body-lg text-[var(--color-text-muted)] max-w-2xl mx-auto mb-6">
             Equipados con todas las herramientas para llevar la imagen de tu negocio directamente a las estrellas.
           </p>
           <div className="w-16 h-1 bg-[var(--color-secondary)] mx-auto rounded-full shadow-[0_0_10px_rgba(0,180,216,0.8)]" />
@@ -131,11 +131,11 @@ const Services = ({ id }) => {
                     />
                   </div>
                   
-                  <h3 className="text-h3 font-display text-white mb-4 transition-all duration-300">
+                  <h3 data-i18n={`services.${index}.title`} className="text-h3 font-display text-white mb-4 transition-all duration-300">
                     {service.title}
                   </h3>
                   
-                  <p className="text-body text-[var(--color-text-muted)] leading-relaxed flex-grow group-hover:text-[var(--color-text-primary)] transition-colors duration-300 relative z-10">
+                  <p data-i18n={`services.${index}.desc`} className="text-body text-[var(--color-text-muted)] leading-relaxed flex-grow group-hover:text-[var(--color-text-primary)] transition-colors duration-300 relative z-10">
                     {service.description}
                   </p>
 

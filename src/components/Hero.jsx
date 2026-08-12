@@ -105,6 +105,7 @@ const Hero = ({ id }) => {
           <div className="relative z-10 w-full flex justify-center items-center py-2">
             <h1 
               className="text-center font-black uppercase m-0 p-0 tracking-widest"
+              data-i18n="hero.title"
               style={{ 
                 fontFamily: '"Archivo Black", Impact, sans-serif',
                 fontSize: 'clamp(3rem, 8vw, 6.5rem)',
@@ -133,15 +134,16 @@ const Hero = ({ id }) => {
           </span>
         </div>
 
-        <p 
+            <p 
           className="osn-hero__subtitle text-body-lg md:text-h4 font-body font-normal text-[var(--color-text-muted)] mb-12 max-w-3xl leading-relaxed drop-shadow-md relative z-20"
+          data-i18n="hero.subtitle"
           style={{ 
              opacity: 0, 
              animation: mounted ? 'fadeSlideUp 0.8s ease-out 0.3s forwards' : 'none' 
           }}
         >
           Agencia especializada en creación de contenido audiovisual, edición profesional y gestión de redes sociales para empresas en Durango.
-          <strong className="text-[var(--color-text-primary)] font-semibold block mt-4 text-[var(--color-secondary)] border-b border-[var(--color-secondary)] pb-1 inline-block">Llevamos el marketing de tu empresa a una nueva órbita.</strong>
+            <strong data-i18n="hero.emph" className="text-[var(--color-text-primary)] font-semibold block mt-4 text-[var(--color-secondary)] border-b border-[var(--color-secondary)] pb-1 inline-block">Llevamos el marketing de tu empresa a una nueva órbita.</strong>
         </p>
 
         <div 
@@ -159,7 +161,7 @@ const Hero = ({ id }) => {
                className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.25)] to-transparent opacity-0 group-hover:opacity-100 w-[200%] h-full pointer-events-none" 
                style={{ animation: 'shimmer 2s infinite linear' }}
              ></span>
-             <span className="relative z-10">Ver nuestro trabajo</span>
+             <span data-i18n="hero.btn.work" className="relative z-10">Ver nuestro trabajo</span>
            </a>
 
            <a 
@@ -167,7 +169,7 @@ const Hero = ({ id }) => {
              className="osn-btn osn-btn--outline px-8 py-4 rounded-full border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] text-lg font-semibold transition-all duration-300 hover:bg-[var(--color-secondary)] hover:text-white focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none w-full sm:w-auto"
              style={{ textShadow: '0 0 10px rgba(0,180,216,0.3)' }}
            >
-             Hablemos
+             <span data-i18n="hero.btn.contact">Hablemos</span>
            </a>
         </div>
       </div>

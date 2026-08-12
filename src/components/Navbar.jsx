@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import navLogo from '../assets/images/osoblancoletras.webp';
+import LanguageToggle from './LanguageToggle.jsx';
 
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -52,11 +53,11 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Portafolio', href: '#portafolio' },
-    { name: 'Contacto', href: '#contacto' },
+    { key: 'nav.inicio', name: 'Inicio', href: '#inicio' },
+    { key: 'nav.nosotros', name: 'Nosotros', href: '#nosotros' },
+    { key: 'nav.servicios', name: 'Servicios', href: '#servicios' },
+    { key: 'nav.portafolio', name: 'Portafolio', href: '#portafolio' },
+    { key: 'nav.contacto', name: 'Contacto', href: '#contacto' },
   ];
 
   return (
@@ -85,6 +86,7 @@ const Navbar = () => {
               <a
                 href={link.href}
                 className="text-[var(--color-text-primary)] font-body font-medium hover:text-[var(--color-secondary)] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded px-2 py-1"
+                data-i18n={link.key}
               >
                 {link.name}
               </a>
@@ -107,16 +109,27 @@ const Navbar = () => {
               <WhatsAppIcon />
             </a>
           </div>
+          <div className="flex items-center">
+            {/* Language toggle */}
+            <div className="ml-4">
+              <LanguageToggle />
+            </div>
+          </div>
         </div>
 
-        <button
-          className="md:hidden text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] transition-colors z-50 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded p-1"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-expanded={isMobileMenuOpen}
-          aria-label="Alternar menú móvil"
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="flex items-center md:hidden gap-2 z-50">
+          <div className="mr-2">
+            <LanguageToggle />
+          </div>
+          <button
+            className="text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded p-1"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-label="Alternar menú móvil"
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       <div
@@ -132,6 +145,7 @@ const Navbar = () => {
                 href={link.href}
                 className="block text-2xl font-display font-medium text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] hover:bg-[rgba(0,180,216,0.05)] transition-all py-3 px-4 border border-transparent hover:border-[rgba(0,180,216,0.3)] hover:shadow-[0_0_15px_rgba(0,180,216,0.2)] rounded-lg focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none w-full"
                 onClick={() => setIsMobileMenuOpen(false)}
+                data-i18n={link.key}
               >
                 {link.name}
               </a>
@@ -141,10 +155,16 @@ const Navbar = () => {
             <a
               href="#contacto"
               className="block w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] shadow-[0_0_20px_rgba(123,47,190,0.5)] border border-[rgba(224,64,251,0.5)] text-white py-4 rounded-full font-bold text-xl hover:scale-105 transition-transform focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none"
+              data-i18n="hero.btn.contact"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Hablemos
             </a>
+          </li>
+          <li className="w-full text-center mt-6">
+            <div className="inline-flex items-center justify-center">
+              <LanguageToggle />
+            </div>
           </li>
           <li className="w-full flex justify-center gap-6 mt-8 pt-8 border-t border-[rgba(255,255,255,0.1)]">
             <a href="https://www.instagram.com/osonauta_cueva_creativa/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[#E1306C] transition-colors focus-visible:ring-2 focus-visible:ring-[#E1306C] rounded p-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(225,48,108,0.2)]" aria-label="Instagram">
