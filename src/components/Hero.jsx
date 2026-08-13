@@ -31,9 +31,9 @@ const Hero = ({ id }) => {
 
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0A0A1A]/70 via-[#0A0A1A]/60 to-[#0A0A1A] pointer-events-none"></div>
 
-      <div className="osn-hero__content relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center mt-8">
+      <div className="osn-hero__content relative z-10 text-center px-6 max-w-7xl mx-auto flex flex-col items-center mt-8">
         
-        <div className={`osn-hero__logo-wrapper flex items-center justify-center mb-8 rounded-full transition-opacity duration-1000 relative ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`osn-hero__logo-wrapper flex items-center justify-center mb-8 rounded-full transition-opacity duration-1000 relative ${mounted ? 'opacity-100' : 'opacity-0'}`}>
           {/* Estrellas saliendo del planeta */}
           <div className="absolute inset-0 z-0" style={{ animation: 'spin 20s linear infinite' }}>
             <div className="mini-star w-2 h-2 top-[-10%] left-[20%]" style={{ animationDelay: '0.2s' }}></div>
@@ -90,7 +90,9 @@ const Hero = ({ id }) => {
                style={{ transform: 'translateZ(40px)' }}
              />
           </div>
-        </div>
+          </div>
+
+        <div className="w-full max-w-4xl mx-auto">
 
         <div 
           className="osn-hero__title-container flex flex-col items-center mb-6 drop-shadow-lg relative z-20"
@@ -174,6 +176,7 @@ const Hero = ({ id }) => {
              <span data-i18n="hero.btn.contact">Hablemos</span>
            </a>
         </div>
+      </div>
       </div>
 
     </section>
