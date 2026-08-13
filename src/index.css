@@ -106,8 +106,14 @@ html {
 @media (max-width: 768px) {
   .osn-hero__content {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
     max-width: calc(100% - 48px); /* respect default px-6 padding */
+    margin-left: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: left;
   }
+  .osn-hero__content .osn-hero__title-container { text-align: left; }
+  .osn-hero__content .osn-hero__actions { justify-content: flex-start; }
 }

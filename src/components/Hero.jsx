@@ -106,18 +106,18 @@ const Hero = ({ id }) => {
           <div className="absolute top-0 right-0 w-2 h-2 bg-[var(--color-accent)] rounded-full shadow-[0_0_10px_var(--color-accent)] animate-[ping_2s_infinite]" />
 
           {/* Marketing Estilizado - Estilo Star Wars (Simétrico y estructurado) */}
-          <div className="relative z-10 w-full flex justify-center items-center py-2">
+          <div className="relative z-10 w-full flex justify-center sm:justify-center items-center py-2">
             <h1 
-              className="text-center font-black uppercase m-0 p-0 tracking-widest"
+              className="sm:text-center text-left font-black uppercase m-0 p-0 tracking-widest w-full"
               data-i18n="hero.title"
               style={{ 
                 fontFamily: '"Archivo Black", Impact, sans-serif',
-                fontSize: 'clamp(3rem, 8vw, 6.5rem)',
+                fontSize: 'clamp(2rem, 6vw, 4rem)',
                 lineHeight: '1',
-                color: 'transparent', // Fondo hueco característico de SW
-                WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.5)', // Contorno ultrafino y minimalista
-                textShadow: '0 0 15px rgba(0, 242, 254, 0.3), 0 0 30px rgba(123, 47, 190, 0.3)',
-                transform: 'scaleY(1.15)', // Efecto alargado de las letras estelares épicas
+                color: 'transparent',
+                WebkitTextStroke: '0.45px rgba(255, 255, 255, 0.55)',
+                textShadow: '0 0 12px rgba(0, 242, 254, 0.25), 0 0 24px rgba(123, 47, 190, 0.25)',
+                transform: 'scaleY(1.08)'
               }}
             >
               MARKETING ESPECIALIZADO

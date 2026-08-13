@@ -71,36 +71,35 @@ const Navbar = () => {
       }`}
       aria-label="Navegación principal"
     >
-      <div className="max-w-7xl mx-auto px-6 grid items-center relative" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
-        <div className="col-start-1">
-          <ul className="osn-navbar__nav hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                className="text-[var(--color-text-primary)] font-body font-medium hover:text-[var(--color-secondary)] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded px-2 py-1"
-                data-i18n={link.key}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-          </ul>
-        </div>
-
-        <div className="col-start-2 flex justify-center">
-          <a 
-            href="#inicio" 
-            className="osn-navbar__brand flex items-center gap-3 z-50 absolute left-1/2 -translate-x-1/2 md:static md:transform-none focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded hover:scale-105 transition-transform"
+      <div className="max-w-7xl mx-auto px-6 grid items-center relative" style={{ gridTemplateColumns: 'auto 1fr auto' }}>
+        <div className="col-start-1 flex items-center gap-4">
+          <a
+            href="#inicio"
+            className="osn-navbar__brand flex items-center gap-3 z-50 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded hover:scale-105 transition-transform"
             aria-label="Ir al inicio"
           >
             <img src={navLogo} alt="Logo de Osonauta, agencia de marketing en Durango" className="h-10 sm:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
           </a>
+
+          <ul className="osn-navbar__nav hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className="text-[var(--color-text-primary)] font-body font-medium hover:text-[var(--color-secondary)] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded px-2 py-1"
+                  data-i18n={link.key}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <div className="col-start-2" />
 
         <div className="col-start-3 flex justify-end items-center gap-6">
           <div className="hidden md:flex items-center gap-3">
-          <div className="flex items-center gap-3">
             <a href="https://www.instagram.com/osonauta_cueva_creativa/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[#E1306C] transition-colors focus-visible:ring-2 focus-visible:ring-[#E1306C] rounded p-1" aria-label="Instagram">
               <InstagramIcon />
             </a>
@@ -113,12 +112,8 @@ const Navbar = () => {
             <a href="https://wa.me/526182663567" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[#25D366] transition-colors focus-visible:ring-2 focus-visible:ring-[#25D366] rounded p-1" aria-label="WhatsApp">
               <WhatsAppIcon />
             </a>
-          </div>
-            <div className="flex items-center">
-              {/* Language toggle */}
-              <div className="ml-4 hidden md:block">
-                <LanguageToggle />
-              </div>
+            <div className="ml-4 hidden md:block">
+              <LanguageToggle />
             </div>
           </div>
 
