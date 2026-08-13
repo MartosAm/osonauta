@@ -101,3 +101,13 @@ html {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
 }
+
+/* Fix: force hero content centering on small screens where some absolute children may visually shift layout */
+@media (max-width: 768px) {
+  .osn-hero__content {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100% - 48px); /* respect default px-6 padding */
+  }
+}
