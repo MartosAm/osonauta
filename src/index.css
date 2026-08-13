@@ -106,8 +106,8 @@ html {
 @media (max-width: 768px) {
   .osn-hero__content {
     position: relative;
-    left: 0;
-    transform: none;
+    left: 50%;
+    transform: translateX(calc(-50% + 12px)); /* center but nudge slightly right */
     max-width: calc(100% - 48px); /* respect default px-6 padding */
     margin-left: 0;
     padding-left: 16px;
