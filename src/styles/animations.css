@@ -25,22 +25,26 @@
 }
 
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(123,47,190,0.4); }
-  50%       { box-shadow: 0 0 28px rgba(123,47,190,0.85); }
+  /* Animate opacity only so the browser can composite instead of repainting box-shadow */
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
 }
 
 /* Elementos Cósmicos Universales */
 @keyframes shooting {
-  0% { transform: rotate(195deg) translateX(0); opacity: 0; width: 0px; }
-  1% { opacity: 1; width: 200px; }
-  6% { transform: rotate(195deg) translateX(800px); opacity: 0; width: 0px; }
-  100% { transform: rotate(195deg) translateX(800px); opacity: 0; width: 0px; }
+  /* Use scaleX on a fixed-width element to avoid layout/paint — only composite */
+  0%   { transform: rotate(195deg) translateX(0) scaleX(0); opacity: 0; }
+  1%   { transform: rotate(195deg) translateX(0) scaleX(1); opacity: 1; }
+  6%   { transform: rotate(195deg) translateX(800px) scaleX(1); opacity: 0; }
+  100% { transform: rotate(195deg) translateX(800px) scaleX(1); opacity: 0; }
 }
 
 .shooting-star-shared {
   position: absolute;
   height: 1px;
+  width: 200px; /* fixed width, animate scaleX instead of width */
   background: linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0));
+  transform-origin: left center;
   animation: shooting 8s ease-in-out infinite;
   z-index: 0;
   pointer-events: none;

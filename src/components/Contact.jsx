@@ -43,7 +43,7 @@ const Contact = ({ id }) => {
 
       <div 
         className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-[var(--color-primary)] rounded-full blur-[150px] opacity-20 pointer-events-none mix-blend-screen"
-        style={{ animation: 'glowPulse 8s infinite' }}
+        style={{ animation: 'glowPulse 8s infinite', boxShadow: '0 0 28px rgba(123,47,190,0.85)', willChange: 'opacity, transform' }}
       />
       
       {/* Satélite (Dibujado en CSS) orbitando en el fondo */}

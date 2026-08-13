@@ -69,7 +69,9 @@ const Hero = ({ id }) => {
                style={{
                  background: 'radial-gradient(circle at 35% 35%, #5E1F94 0%, #1A0B2E 70%)',
                  border: '1px solid rgba(123,47,190,0.5)',
-                 animation: 'glowPulse 4s infinite'
+                animation: 'glowPulse 4s infinite',
+                boxShadow: '0 0 60px rgba(123,47,190,0.8), inset -15px -15px 30px rgba(0,0,0,0.9), inset 15px 15px 30px rgba(255,255,255,0.3)',
+                willChange: 'opacity, transform'
                }}
              >
                 {/* Cráteres y atmósfera */}

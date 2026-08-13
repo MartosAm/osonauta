@@ -74,7 +74,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a 
           href="#inicio" 
-          className="osn-navbar__brand flex items-center gap-3 z-50 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded hover:scale-105 transition-transform"
+          className="osn-navbar__brand flex items-center gap-3 z-50 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded hover:scale-105 transition-transform absolute left-1/2 -translate-x-1/2 md:static md:transform-none"
           aria-label="Ir al inicio"
         >
           <img src={navLogo} alt="Logo de Osonauta, agencia de marketing en Durango" className="h-10 sm:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />

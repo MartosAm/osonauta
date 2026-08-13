@@ -39,14 +39,14 @@ const Services = ({ id }) => {
   return (
     <section id={id} className="osn-services relative py-16 md:py-24 bg-transparent overflow-hidden">
       
-      {/* Estilos locales para HUD scanner */}
+      {/* Estilos locales para HUD scanner (usa transform en vez de top para evitar layout) */}
       <style>
         {`
           @keyframes hud-scan {
-            0% { top: -10%; opacity: 0; }
+            0% { transform: translateY(-40px); opacity: 0; }
             10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 110%; opacity: 0; }
+            90% { transform: translateY(360px); opacity: 1; }
+            100% { transform: translateY(360px); opacity: 0; }
           }
         `}
       </style>
@@ -61,7 +61,9 @@ const Services = ({ id }) => {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-10 mix-blend-screen pointer-events-none"
         style={{
           background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 60%)',
-          animation: 'glowPulse 6s infinite'
+          animation: 'glowPulse 6s infinite',
+          boxShadow: '0 0 28px var(--color-primary)',
+          willChange: 'opacity, transform'
         }}
         aria-hidden="true"
       />
@@ -112,7 +114,8 @@ const Services = ({ id }) => {
                   style={{ 
                     background: `linear-gradient(90deg, transparent, ${service.color}, transparent)`, 
                     boxShadow: `0 0 15px ${service.color}`,
-                    animation: 'hud-scan 2.5s ease-in-out infinite' 
+                    animation: 'hud-scan 2.5s ease-in-out infinite',
+                    willChange: 'transform, opacity'
                   }}
                 ></div>
                 <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 opacity-30 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: service.color }}></div>
