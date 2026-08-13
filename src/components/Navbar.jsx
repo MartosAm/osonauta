@@ -71,16 +71,9 @@ const Navbar = () => {
       }`}
       aria-label="Navegación principal"
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a 
-          href="#inicio" 
-          className="osn-navbar__brand flex items-center gap-3 z-50 focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded hover:scale-105 transition-transform absolute left-1/2 -translate-x-1/2 md:static md:transform-none"
-          aria-label="Ir al inicio"
-        >
-          <img src={navLogo} alt="Logo de Osonauta, agencia de marketing en Durango" className="h-10 sm:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
-        </a>
-
-        <ul className="osn-navbar__nav hidden md:flex items-center gap-8">
+      <div className="max-w-7xl mx-auto px-6 grid items-center relative" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+        <div className="col-start-1">
+          <ul className="osn-navbar__nav hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
@@ -92,9 +85,21 @@ const Navbar = () => {
               </a>
             </li>
           ))}
-        </ul>
+          </ul>
+        </div>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="col-start-2 flex justify-center">
+          <a 
+            href="#inicio" 
+            className="osn-navbar__brand flex items-center gap-3 z-50 absolute left-1/2 -translate-x-1/2 md:static md:transform-none focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded hover:scale-105 transition-transform"
+            aria-label="Ir al inicio"
+          >
+            <img src={navLogo} alt="Logo de Osonauta, agencia de marketing en Durango" className="h-10 sm:h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+          </a>
+        </div>
+
+        <div className="col-start-3 flex justify-end items-center gap-6">
+          <div className="hidden md:flex items-center gap-3">
           <div className="flex items-center gap-3">
             <a href="https://www.instagram.com/osonauta_cueva_creativa/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[#E1306C] transition-colors focus-visible:ring-2 focus-visible:ring-[#E1306C] rounded p-1" aria-label="Instagram">
               <InstagramIcon />
@@ -109,26 +114,27 @@ const Navbar = () => {
               <WhatsAppIcon />
             </a>
           </div>
-          <div className="flex items-center">
-            {/* Language toggle */}
-            <div className="ml-4">
-              <LanguageToggle />
+            <div className="flex items-center">
+              {/* Language toggle */}
+              <div className="ml-4 hidden md:block">
+                <LanguageToggle />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex items-center md:hidden gap-2 z-50">
-          <div className="mr-2">
-            <LanguageToggle />
+          <div className="flex items-center md:hidden gap-2 z-50">
+            <div className="mr-2">
+              <LanguageToggle />
+            </div>
+            <button
+              className="text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded p-1"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label="Alternar menú móvil"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
-          <button
-            className="text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)] focus-visible:outline-none rounded p-1"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-expanded={isMobileMenuOpen}
-            aria-label="Alternar menú móvil"
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
       </div>
 
